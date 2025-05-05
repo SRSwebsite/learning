@@ -1,0 +1,33 @@
+function doPost(e) {
+  Logger.log(JSON.stringify(e.parameter)); // این خط را اضافه کنید تا داده‌های ارسالی را ببینید
+
+  const sheet = SpreadsheetApp.openById('14RXylxYi5dyrb2XGBXIHSQ2B2mBnTqbDeirwzOeR-no').getActiveSheet();
+
+  if (!e.parameter) {
+    return ContentService.createTextOutput("No data received.");
+  }
+
+  // دریافت ایمیل از فیلد فرم (ایمیل وارد شده توسط کاربر)
+  const email = e.parameter.email; // ایمیل کاربر که از فیلد فرم گرفته شده
+
+  // ایجاد ردیف جدید برای ذخیره داده‌ها
+  const row = [
+    new Date(), // زمان ثبت
+    email, // ایمیل کاربر که از فیلد فرم گرفته شده
+    e.parameter.firstName || "", // نام
+    e.parameter.lastName || "",  // نام خانوادگی
+    e.parameter.phone || "", // شماره تلفن
+    e.parameter.province || "", // استان
+    e.parameter.city || "", // شهر
+    e.parameter.address || "", // آدرس دقیق
+    e.parameter.message || "", // توضیحات
+    e.parameter.ipAddress || "", // آدرس IP
+    e.parameter.location || "", // موقعیت جغرافیایی
+    e.parameter.browserInfo || "", // اطلاعات مرورگر
+    e.parameter.formId || "", // شناسه فرم
+  ];
+
+  sheet.appendRow(row);
+
+  return ContentService.createTextOutput("اطلاعات با موفقیت ارسال شد!");
+}
