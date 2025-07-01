@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+	
+
+    <title>قبل و بعد01</title>
+    <link rel="stylesheet" href="engines/A&B.css">
+    <script src="engines/A&B.js"></script>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', domReady);
+
+        function domReady() {
+            new Dics({
+                container: document.querySelectorAll('.b-dics')[0],
+                textPosition: 'top'
+            });
+
+            new Dics({
+                container: document.querySelectorAll('.b-dics')[1],
+                hideTexts: true,
+                textPosition: 'center'
+            });
+
+            new Dics({
+                container: document.querySelectorAll('.b-dics')[2]
+            });
+
+            new Dics({
+                container: document.querySelectorAll('.b-dics')[3],
+                linesOrientation: 'vertical',
+                textPosition: 'left',
+                arrayBackgroundColorText: ['#000000', '#FFFFFF'],
+                arrayColorText: ['#FFFFFF', '#000000'],
+                linesColor: 'rgb(0,0,0)'
+            });
+
+            new Dics({
+                container: document.querySelectorAll('.b-dics')[4],
+                linesOrientation: 'vertical',
+                textPosition: 'right'
+            });
+
+            new Dics({
+                container: document.querySelectorAll('.b-dics')[5],
+                textPosition: 'bottom'
+            });
+
+            new Dics({
+                container: document.querySelectorAll('.b-dics')[6],
+                filters: ['blur(3px)', 'grayscale(1)', 'sepia(1)', 'saturate(3)']
+            });
+            new Dics({
+                container: document.querySelectorAll('.b-dics')[7],
+                rotate: '45deg'
+            });
+
+        }
+		
+        function toggleFullscreen(sliderId) {
+        const slider = document.getElementById(sliderId);
+        const button = document.getElementById('iframe-fullscreen-btn');
+        
+        if (!document.fullscreenElement) {
+            if (slider.requestFullscreen) {
+                slider.requestFullscreen();
+            } else if (slider.mozRequestFullScreen) { // Firefox
+                slider.mozRequestFullScreen();
+            } else if (slider.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                slider.webkitRequestFullscreen();
+            } else if (slider.msRequestFullscreen) { // IE/Edge
+                slider.msRequestFullscreen();
+            }
+            button.classList.add('fullscreen'); // Add class for fullscreen
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) { // Firefox
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { // IE/Edge
+                document.msExitFullscreen();
+            }
+            button.classList.remove('fullscreen'); // Remove class when exiting fullscreen
+        }
+    }
+    </script>
+
+</head>
+<body>
+
+<div style="padding: 50px 0;">
+    <div class="b-dics" id="iframe"> <!-- Add your slider or content here -->
+		<button class="fullscreen-btn" id="iframe-fullscreen-btn" onclick="toggleFullscreen('iframe')">
+        <i class="fas fa-expand"></i> <!-- Font Awesome icon for fullscreen -->
+    </button>
+	
+        <img src="images/f1.jpg" alt="قبل از طراحی">
+        <img src="images/f2.jpg" alt="بعداز طراحی">
+    </div>
+	
+</div>
+
+
+</body>
+
+
+</html>
