@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="file/p.css">
+  <title>پنل تب‌دار واکنش‌گرا</title>
+ 
+</head>
+<body>
+
+  <div class="container">
+<div class="header">
+<iframe class="unique-iframe" src="https://srswebsite.github.io/app/logo/index.html"></iframe>
+
+
+  <div class="title">عنوان پروژه</div>
+  
+
+  <div class="menu-wrapper">
+    <button class="menu-toggle" onclick="toggleMenu()">منو</button>
+    <div class="menu-panel" id="menuPanel">
+	<a href="https://srswebsite.github.io/app/proff.html"target="_blank class="btn">
+ <i class="fa fa-address-card" style="color: #20c4ff;"></i>
+</a>
+     <a href="https://srswebsite.github.io/g/full gallery"target="_blank" class="btn">
+<i class="fa fa-images" style="color: #ff8b8b; font-size: 20px;"></i>
+</a>
+ <a href="https://srswebsite.github.io/g/map gallery"target="_blank class="btn">
+<i class="fa fa-map-marker-alt" style="color: #fff120;"></i>
+</a>
+<a href="https://www.instagram.com/srs_insta?igsh=OW10NzNpcXdqamMy"target="_blank class="btn">
+ <i class="fab fa-instagram" style="color: #e800da"></i>
+</a>
+     <a href="https://t.me/+f2EHRQt93FJjYzBk"target="_blank" class="btn">
+        <i class="fab fa-telegram-plane" style="color: #90acff; font-size: 20px;"></i>
+    </a>
+	<a href="tel:+989910651542"target="_blank class="btn">
+        <i class="fa fa-phone-alt" style="color: #1bbf03; font-size: 20px;"></i>
+    </a>
+      
+
+   
+<a href="https://srswebsite.github.io/app/form/bussiness%20form.html"target="_blank" class="btn">
+        <i class="fas fa-file-alt" style="color: #fff; font-size: 20px;"></i>
+    </a>
+    </div>
+  </div>
+</div>
+
+
+
+    <!-- Tabs (Desktop) -->
+    <div class="tabs">
+      <div class="tab active" onclick="openTab(0)">اسلایدر</div>
+      <div class="tab" onclick="openTab(1)">قبل و بعد</div>
+      <div class="tab" onclick="openTab(2)">توضیحات</div>
+      <div class="tab" onclick="openTab(3)">تیزر</div>
+      <div class="tab" onclick="openTab(4)">تعاملی</div>
+    </div>
+
+     <div class="tab-content active"><iframe src="1/index.html"frameborder="0" allowfullscreen></iframe></div>
+    <div class="tab-content"><iframe src="2/index.html"frameborder="0" allowfullscreen></iframe></div>
+    <div class="tab-content"><iframe src="3/index.html"frameborder="0" allowfullscreen></iframe></div>
+    <div class="tab-content">
+  <div class="iframe-container">
+   <iframe
+  id="iframe"
+  src="https://drive.google.com/file/d/1f92zdFLdlkl_3pZrvMDODFBXff8SMXEj/preview"frameborder="0" allowfullscreen
+  class="iframe-content"
+  allow="autoplay"
+  allowfullscreen>
+</iframe>
+	<button class="fullscreen-btn" id="iframe-fullscreen-btn" onclick="toggleFullscreen('iframe')">
+        <i class="fas fa-expand"></i> <!-- Font Awesome icon for fullscreen -->
+    </button>
+  </div>
+</div>
+
+    <div class="tab-content"><iframe src="5/index.html"frameborder="0" allowfullscreen></iframe></div>
+
+    <!-- Accordion (Mobile) -->
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">اسلایدر</div>
+        <div class="accordion-panel"><iframe src="1/index.html"frameborder="0" allowfullscreen></iframe></div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">قبل و بعد</div>
+        <div class="accordion-panel"><iframe src="2/index.html"frameborder="0" allowfullscreen></iframe></div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">توضیحات</div>
+        <div class="accordion-panel"><iframe src="3/index.html"frameborder="0" allowfullscreen></iframe></div>
+		
+      </div>
+     <div class="accordion-item">
+  <div class="accordion-header" onclick="toggleAccordion(this)">تیزر</div>
+  <div class="accordion-panel">
+    <div class="iframe-container">
+     <iframe
+  id="iframe"
+  src="https://drive.google.com/file/d/1f92zdFLdlkl_3pZrvMDODFBXff8SMXEj/preview"frameborder="0" allowfullscreen
+  class="iframe-content"
+  allow="autoplay"
+  allowfullscreen>
+  
+</iframe>
+	  <button class="fullscreen-btn" id="iframe-fullscreen-btn" onclick="toggleFullscreen('iframe')">
+        <i class="fas fa-expand"></i> <!-- Font Awesome icon for fullscreen -->
+    </button>
+    </div>
+  </div>
+</div>
+
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">تعاملی</div>
+        <div class="accordion-panel"><iframe src="https://srswebsite.github.io/app/logo/index.html"frameborder="0" allowfullscreen></iframe></div>
+      </div>
+    </div>
+  </div>
+<script src="file/p.js"></script>
+ 
+</body>
+</html>
