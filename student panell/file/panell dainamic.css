@@ -1,0 +1,268 @@
+/* --- SoftUI Base --- */
+body {
+  font-family: 'Vazirmatn', sans-serif;
+  direction: rtl;
+  padding: 30px;
+  background: #e0e5ec;
+  color: #333;
+  position: relative;
+}
+
+/* --- دکمه بارگذاری بالا سمت راست --- */
+.reload-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  padding: 8px 14px;
+  background: #fff;
+  color: #1976d2;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 4px 4px 10px #c1c6cc,
+              -4px -4px 10px #ffffff;
+  transition: all 0.3s ease;
+}
+
+.reload-btn:hover {
+  transform: scale(1.05);
+  background: #f0f0f0;
+}
+
+/* --- پنل آموزش آکاردئونی بالا سمت چپ --- */
+.login-accordion {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  max-width: 300px;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  background-color: #f9f9f9;
+  z-index: 1000;
+}
+
+.login-header {
+  background-color: #1976d2;
+  color: white;
+  padding: 15px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-header i {
+  transition: transform 0.3s;
+}
+
+.login-header.active i {
+  transform: rotate(180deg);
+}
+
+.login-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 20px;
+}
+
+.login-content form {
+  padding: 20px 0;
+}
+
+.login-content input {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.login-content button {
+  width: 100%;
+  padding: 10px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#loginError {
+  color: red;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+/* --- Accordion Style --- */
+.accordion {
+  margin-bottom: 20px;
+  border-radius: 16px;
+  background: #e0e5ec;
+  box-shadow: 8px 8px 16px #c1c6cc,
+              -8px -8px 16px #ffffff;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.accordion:hover {
+  transform: scale(1.01);
+  box-shadow: 4px 4px 12px #c1c6cc,
+              -4px -4px 12px #ffffff;
+}
+
+.accordion-header {
+  cursor: pointer;
+  padding: 20px;
+  font-weight: bold;
+  background: #e0e5ec;
+  border-radius: 16px 16px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: inset 3px 3px 6px #c1c6cc,
+              inset -3px -3px 6px #ffffff;
+  transition: all 0.3s ease;
+}
+
+.accordion-header.active {
+  background: #d2d9e3;
+  box-shadow: inset 4px 4px 8px #c1c6cc,
+              inset -4px -4px 8px #ffffff;
+}
+
+.accordion-content {
+  display: none;
+  padding: 20px;
+  background: #e0e5ec;
+  line-height: 1.9;
+  font-weight: 500;
+  border-radius: 0 0 16px 16px;
+  box-shadow: inset 4px 4px 8px #c1c6cc,
+              inset -4px -4px 8px #ffffff;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.accordion-content.show {
+  display: block;
+}
+
+/* --- Stars --- */
+.stars {
+  font-size: 1.3em;
+  margin-left: 10px;
+}
+.stars.red { color: #e53935; }
+.stars.orange { color: #fb8c00; }
+.stars.yellow { color: #f1c40f; }
+
+/* --- Status Icons --- */
+.status-icon {
+  font-size: 1.5em;
+  margin-left: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.3s;
+}
+.status-icon:hover {
+  transform: scale(1.3);
+}
+.status-icon.done { color: #27ae60; }
+.status-icon.not-done { color: #c0392b; }
+.status-icon.in-progress {
+  color: #f39c12;
+  animation: spin 1.2s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- Download Button --- */
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: linear-gradient(to right, #2980b9, #6dd5fa);
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background 0.4s ease, transform 0.2s ease;
+}
+.download-button:hover {
+  background: linear-gradient(to right, #1b4f72, #3498db);
+  transform: scale(1.05);
+}
+.download-button i {
+  font-size: 18px;
+}
+.download-button.zip-download {
+  background: linear-gradient(to right, #27ae60, #2ecc71);
+}
+.download-button.zip-download:hover {
+  background: linear-gradient(to right, #1e8449, #239b56);
+}
+
+/* --- Tabs --- */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1em;
+  padding: 10px;
+  background: #e0e5ec;
+  border-radius: 16px;
+  box-shadow: inset 4px 4px 8px #c1c6cc,
+              inset -4px -4px 8px #ffffff;
+}
+
+.tab {
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: #e0e5ec;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 6px 6px 10px #c1c6cc,
+              -6px -6px 10px #ffffff;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+.tab:hover {
+  box-shadow: inset 4px 4px 6px #c1c6cc,
+              inset -4px -4px 6px #ffffff;
+}
+.tab.active {
+  background: #f0f3f7;
+  font-weight: bold;
+  box-shadow: inset 4px 4px 8px #c1c6cc,
+              inset -4px -4px 8px #ffffff;
+}
+
+.tab-content {
+  display: none;
+  padding: 1.5em;
+  background: #e0e5ec;
+  border-radius: 16px;
+  box-shadow: inset 4px 4px 8px #c1c6cc,
+              inset -4px -4px 8px #ffffff;
+  animation: fadeIn 0.3s ease-in-out;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* --- Animation --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

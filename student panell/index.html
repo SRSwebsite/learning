@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <title>پنل اختصاصی هنرجو</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  
+  <!-- فقط یکی از فونت‌آوسام را استفاده کنید -->
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
+<link rel="icon" href="file/images/srs.ico" type="image/x-icon"> <!-- آیکون -->
+  
+  <!-- لینک به فایل CSS با نام بدون فاصله -->
+  <link rel="stylesheet" href="file/panell dainamic.css" />
+  
+</head>
+<body>
+<!-- ✅ HTML -->
+<div class="login-accordion">
+  <div class="login-header" onclick="toggleLoginAccordion()">
+    ورود به پنل آموزش
+    <i class="fas fa-chevron-down"></i>
+  </div>
+  <div class="login-content" id="loginContent">
+    <form onsubmit="event.preventDefault(); fetchData();">
+      <input type="text" id="username" placeholder="username" required />
+      <input type="password" id="password" placeholder="password" required />
+      <button type="submit">ورود</button>
+      <div id="loginError"></div>
+    </form>
+  </div>
+</div>
+
+<div id="welcome-box">
+  <div id="welcome-text"></div>
+</div>
+<div id="container"></div>
+
+
+<button onclick="hardReload()" style="padding: 6px 12px; background: #fff; color: #1976d2; border: none; border-radius: 4px; cursor: pointer;">
+  <i class="fas fa-sync-alt" style="margin-right: 5px;"></i> بارگذاری مجدد
+</button>
+<div id="welcomeUser"></div>
+
+<h2>جلسات آموزشی</h2>
+<div id="accordionContainer"></div>
+
+<!-- لینک به فایل JavaScript با نام بدون فاصله -->
+<script src="file/panell dainamic.js" defer></script>
+
+</body>
+</html>
