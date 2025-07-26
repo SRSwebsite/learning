@@ -1,1 +1,103 @@
- body { font-family: 'Poppins', sans-serif; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #f0f4f8, #d9e2ec);
+}
+
+/* انیمیشن‌ها */
+@keyframes slideDown {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.5s ease-out forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-in;
+}
+
+.sidebar-transition {
+  transition: transform 0.4s ease-in-out;
+}
+#infoTab iframe {
+  border: 1px solid #d1d5db; /* رنگ طوسی لطیف */
+}
+
+#infoTab h2, #infoTab h3 {
+  font-family: 'Poppins', sans-serif;
+}
+
+#infoTab .card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+#userPhoto {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #3b82f6; /* یک حاشیه آبی زیبا */
+  width: 180px !important; /* عرض و ارتفاع ثابت */
+  height: 180px !important;
+}
+/* استایل دکمه‌مانند برای عناوین */
+.btn-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  background: #3b82f6;  /* آبی روشن */
+  color: white;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.4);
+  cursor: default;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-title:hover {
+  background: #2563eb;  /* آبی تیره‌تر */
+}
+.sidebar-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #3b82f6; /* آبی روشن */
+  color: white;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100%;
+  text-align: center;
+}
+
+.sidebar-button:hover,
+.sidebar-button:focus {
+  background-color: #2563eb; /* آبی تیره‌تر */
+  outline: none;
+  color: white;
+}
+@media (min-width: 768px) {
+  .sidebar-button {
+    width: auto;
+  }
+}
+@media (max-width: 640px) {
+    #activeCoursesList {
+      max-height: 300px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
