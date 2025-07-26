@@ -24,7 +24,7 @@ function showTab(tabId) {
 }
 
 // آدرس API اسکریپت Google Apps Script برای اعتبارسنجی اطلاعات ورود
-const scriptURL = "https://script.google.com/macros/s/AKfycbyB3B24LgGGq0UE4jEJGaj70JvlYG2gzKlMnOI9D-QtyFms25R0SkBRZSfhfb7TPC87/exec"; // ← آدرس کوتاه شده
+const scriptURL = "https://script.google.com/macros/s/AKfycbzjQK8QBV4zyjCDx2qQhuhSjgfNuwtq_UBecA1LSKX58jwwzhL9qqkdmU9fE0cjQ6Vw/exec"; // ← آدرس کوتاه شده
 
 // تابع ورود (Login)
 function login() {
@@ -148,7 +148,7 @@ const tabData = [
       : `<p class="text-red-500">ویدئویی وجود ندارد.</p>`
   },
   {
-    title: "WebGL",
+    title: "3D",
     content: session.webglLink
       ? `
         <div class="space-y-2">
@@ -166,17 +166,13 @@ const tabData = [
                   src="${session.webglLink}" allowfullscreen></iframe>
         </div>
       `
-      : `<p class="text-red-500">لینک WebGL وجود ندارد.</p>`
+      : `<p class="text-red-500">فایلی وجود ندارد</p>`
   },
   {
     title: "دانلودها",
     content: `
       <ul class="list-disc pr-5 text-sm space-y-2">
-        <li>
-          ${session.videoId
-            ? `<a class="text-blue-600 underline" href="https://drive.google.com/u/0/uc?id=${session.videoId}&export=download" target="_blank">دانلود ویدئو</a>`
-            : "ویدئو موجود نیست"}
-        </li>
+        
         <li>
           ${session.fileIds
             ? `<a class="text-blue-600 underline" href="https://drive.google.com/drive/folders/${session.fileIds}" target="_blank">دانلود فایل‌ها</a>`
