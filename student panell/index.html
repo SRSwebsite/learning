@@ -10,21 +10,43 @@
   <link rel="stylesheet" href="file/panell student.css">
  <link rel="icon" href="file/images/srs.ico" type="image/x-icon"> <!-- آیکون -->
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 animate-fadeIn">
 
-  <!-- دکمه منوی موبایل -->
-  <button id="menuToggle" class="md:hidden fixed top-4 right-4 z-50 bg-white p-2 rounded shadow-lg">
-    <i class="fas fa-bars text-xl"></i>
-  </button>
+
+
+<header id="userHeader" class="hidden bg-white shadow-md px-4 py-3 flex items-center gap-4 md:justify-between flex-wrap">
+ 
+    <!-- دکمه منوی موبایل -->
+ <!-- دکمه منوی موبایل -->
+<button id="menuToggle" class="md:hidden absolute left-4 top-4 bg-white p-2 rounded shadow-lg z-40">
+  <i class="fas fa-bars text-xl"></i>
+</button>
+
 
   <!-- سایدبار -->
   <div id="sidebar" class="fixed top-0 right-0 w-64 h-full bg-white shadow-lg p-4 transform translate-x-full transition-transform duration-300 z-40 md:translate-x-0 md:relative md:w-auto md:h-auto md:shadow-none md:flex md:flex-row md:gap-4">
-    <button onclick="showTab('infoTab')" class="block w-full text-right md:w-auto text-gray-700 hover:text-blue-600 mb-2 md:mb-0">اطلاعات هنرجو</button>
-    <button onclick="showTab('coursesTab')" class="block w-full text-right md:w-auto text-gray-700 hover:text-blue-600">دوره‌های فعال</button>
+  <div class="flex items-center gap-4">
+  <!-- عکس هنرجو -->
+    <iframe id="headerUserPhoto" class="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-blue-500" src=""></iframe>
+  <!-- نام هنرجو -->
+    <span id="headerUserName" class="font-semibold text-gray-800 text-lg md:text-xl"></span>
+    
+    
   </div>
+ <button onclick="showTab('infoTab')" class="sidebar-button mb-2 md:mb-0">اطلاعات هنرجو</button>
+  <button onclick="showTab('coursesTab')" class="sidebar-button mb-2 md:mb-0">دوره‌های فعال</button>
+  <button onclick="showTab('statusTab')" class="sidebar-button">وضعیت آموزشی</button>
+</div>
+</header>
+
+
+
+
+
+
 
   <!-- فرم ورود -->
-  <div id="loginForm" class="container mx-auto px-4 py-10">
+  <div id="loginForm" class="container mx-auto px-4 py-10 animate-slideDown">
     <div class="max-w-sm mx-auto bg-white p-6 rounded-xl shadow-md">
       <h2 class="text-2xl font-semibold mb-4 text-center">ورود هنرجو</h2>
       <input type="text" id="username" placeholder="یوزرنیم" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none focus:ring" />
@@ -35,23 +57,50 @@
   </div>
 
   <!-- پنل کاربری -->
-  <div id="userPanel" class="container mx-auto px-4 py-6 hidden">
+ <div id="userPanel" class="container mx-auto px-4 py-6 hidden animate-fadeIn">
+
     <!-- تب اطلاعات هنرجو -->
-    <div id="infoTab" class="hidden">
-      <h2 class="text-2xl font-bold mb-4">اطلاعات هنرجو</h2>
-      <p class="mb-2"><strong>نام:</strong> <span id="userName"></span></p>
-      <iframe id="userPhoto" class="rounded-xl mb-4" width="250" height="180" src=""></iframe>
-      <h3 class="text-lg font-semibold mb-2">قرارداد:</h3>
-      <iframe id="userContract" class="w-full border rounded" height="400" src=""></iframe>
+   <div id="infoTab" class="hidden">
+ <h2 class="btn-title mb-6">اطلاعات هنرجو</h2>
+
+  <!-- کارت اطلاعات کاربر -->
+  <div class="bg-white shadow-md rounded-xl p-6 mb-6 flex flex-col md:flex-row items-start gap-6">
+    <!-- تصویر -->
+    <iframe id="userPhoto" class="rounded-xl border w-full md:w-64 h-48" src=""></iframe>
+
+    <!-- مشخصات -->
+    <div class="flex-1 space-y-2">
+      <div class="flex items-center gap-2 text-gray-700 text-lg">
+        <i class="fas fa-user text-blue-500"></i>
+        <strong>نام:</strong> <span id="userName" class="font-medium text-gray-800"></span>
+      </div>
     </div>
+  </div>
+
+  <!-- کارت قرارداد -->
+  <div class="bg-white shadow-md rounded-xl p-4">
+    <h3 class="btn-title mb-3 flex items-center gap-2">
+  <i class="fas fa-file-contract"></i> قرارداد هنرجو
+</h3>
+    <iframe id="userContract" class="w-full border rounded-xl" height="400" src=""></iframe>
+  </div>
+</div>
+
 
     <!-- تب دوره‌ها -->
     <div id="coursesTab" class="hidden">
-      <h2 class="text-2xl font-bold mb-4">دوره‌های فعال:</h2>
-      <div id="activeCoursesList" class="space-y-4">
-        <ul id="coursesUl" class="list-disc pr-5"></ul>
-      </div>
-    </div>
+  <h2 class="btn-title mb-4">دوره‌های فعال:</h2>
+  <div id="activeCoursesList" class="space-y-4">
+    <ul id="coursesUl" class="list-disc pr-5"></ul>
+  </div>
+</div>
+	
+	<!-- تب وضعیت آموزشی -->
+<div id="statusTab" class="hidden">
+  <!-- <h2 class="text-2xl font-bold mb-4">وضعیت آموزشی</h2> -->
+  <iframe id="eduStatusFrame" class="w-full border rounded" height="500" src=""></iframe>
+</div>
+
   </div>
 
    <script src="file/panell student.js"></script>
