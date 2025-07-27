@@ -14,6 +14,7 @@ function showTab(tabId) {
   document.getElementById("coursesTab").classList.add("hidden");
   document.getElementById("statusTab").classList.add("hidden"); // 👈 اضافه شده برای پنهان کردن تب وضعیت
 
+
   // فقط تب مربوط به tabId را نمایش می‌دهیم
   document.getElementById(tabId).classList.remove("hidden");
 
@@ -26,8 +27,38 @@ function showTab(tabId) {
 // آدرس API اسکریپت Google Apps Script برای اعتبارسنجی اطلاعات ورود
 const scriptURL = "https://script.google.com/macros/s/AKfycbzjQK8QBV4zyjCDx2qQhuhSjgfNuwtq_UBecA1LSKX58jwwzhL9qqkdmU9fE0cjQ6Vw/exec"; // ← آدرس کوتاه شده
 
+
+let currentCaptcha = "";
+
+function generateCaptcha() {
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  currentCaptcha = Array.from({ length: 5 }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
+  const captchaCodeEl = document.getElementById("captchaCode");
+  if (captchaCodeEl) captchaCodeEl.innerText = currentCaptcha;
+}
+
+// اجرای اولیه هنگام بارگذاری صفحه
+window.addEventListener("load", generateCaptcha);
+
+
+
 // تابع ورود (Login)
 function login() {
+	function login() {
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const captchaInput = document.getElementById("captchaInput").value.trim();
+  const loginMsg = document.getElementById("loginMsg");
+
+  if (captchaInput.toUpperCase() !== currentCaptcha.toUpperCase()) {
+    loginMsg.innerText = "کد امنیتی اشتباه است.";
+    generateCaptcha(); // بازسازی کپچا
+    return;
+  }
+
+  // ادامه عملیات fetch...
+}
+
   // دریافت مقادیر ورودی نام کاربری و رمز عبور و حذف فاصله‌های اضافی
   const username = document.getElementById("username").value.trim();
   const password = document.getElementById("password").value.trim();
@@ -57,6 +88,10 @@ function login() {
       document.getElementById("userName").innerText = data.name;
       document.getElementById("userPhoto").src = `https://drive.google.com/file/d/${data.photoId}/preview`;
       document.getElementById("userContract").src = `https://drive.google.com/file/d/${data.contractId}/preview`;
+	  document.getElementById("userNationalId").innerText = data.nationalId || "نامشخص";
+document.getElementById("userFatherName").innerText = data.fatherName || "نامشخص";
+document.getElementById("userLevel").innerText = data.level || "نامشخص";
+
       // مقداردهی به هدر بالا
       document.getElementById("headerUserPhoto").src = `https://drive.google.com/file/d/${data.photoId}/preview`;
       document.getElementById("headerUserName").innerText = data.name;
