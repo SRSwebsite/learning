@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>آیتم های فرم برداشت از پروژه</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      margin: 0;
+      background: #e0e5ec;
+      direction: rtl;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: #e0e5ec;
+      box-shadow: 0 4px 10px rgba(163, 177, 198, 0.4),
+                  0 -4px 10px rgba(255, 255, 255, 0.6);
+      padding: 20px;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      border-radius: 0 0 30px 30px;
+    }
+
+    .accordion-container {
+      width: 90%;
+      max-width: 900px;
+      margin: 40px auto;
+      background: #e0e5ec;
+      border-radius: 20px;
+      box-shadow: 8px 8px 15px #a3b1c6, -8px -8px 15px #ffffff;
+      flex-grow: 1;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid #d1d9e6;
+    }
+
+    .accordion-header {
+      background: #e0e5ec;
+      padding: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .accordion-header:hover {
+      background: #dfe4ea;
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      background: #f1f3f6;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 20px;
+    }
+
+    .accordion-item.active > .accordion-content {
+      max-height: 90vh;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .accordion-content p {
+      margin: 15px 0;
+      color: #555;
+      line-height: 1.8;
+      word-wrap: break-word;
+    }
+
+    .plus-minus {
+      font-size: 24px;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-item.active > .accordion-header .plus-minus {
+      transform: rotate(45deg);
+    }
+
+    /* جلوگیری از اسکرول افقی */
+    .accordion-content::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .accordion-content::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 8px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .accordion-container {
+        width: 95%;
+      }
+
+      .accordion-header {
+        font-size: 1rem;
+        padding: 18px;
+      }
+
+      header {
+        font-size: 1.5rem;
+        padding: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        font-size: 1.3rem;
+      }
+
+      .accordion-header {
+        font-size: 0.95rem;
+        padding: 16px;
+      }
+
+      .accordion-content {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  تنظیم آیتم های فرم برداشت از پروژه(جهت باز سازی فضای مسکونی)
+</header>
+
+<div class="accordion-container">
+  <div class="accordion-item">
+    <div class="accordion-header">
+      1. اطلاعات پایه (شناخت پروژه)
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>این بخش شامل اطلاعات اولیه و عمومی پروژه می باشد که در تمامی حالت های پروژه مشترک است </p>
+
+      <!-- آکاردئون داخلی ۱ -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          عنوان پروژه
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>نام ساختمان یا مشخصه ای که پروژه را میشه با آن شناسایی کرد</p>
+        </div>
+      </div>
+
+      <!-- آکاردئون داخلی ۲ -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          نام کارفرما
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>فرد یا سازمان سفارش‌دهنده</p>
+        </div>
+      </div>
+	  
+	   <div class="accordion-item">
+        <div class="accordion-header">
+          موقعیت پروژه
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>آدرس دقیق یا لوکیشن GPS</p>
+        </div>
+      </div>
+	  
+	  <div class="accordion-item">
+        <div class="accordion-header">
+          کاربری فعلی
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>مسکونی، اداری، تجاری، ...</p>
+        </div>
+      </div>
+	  
+	  <div class="accordion-item">
+        <div class="accordion-header">
+          سال ساخت
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>تخمینی یا از سند</p>
+        </div>
+      </div>
+	  
+	  <div class="accordion-item">
+        <div class="accordion-header">
+          مالکیت / اسناد
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>بررسی مجوز ساخت و پایان‌کار</p>
+        </div>
+      </div>
+	  
+	  <div class="accordion-item">
+        <div class="accordion-header">
+          هدف طراحی مجدد
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>بازسازی، تغییر کاربری، توسعه...</p>
+        </div>
+      </div>
+	  
+    </div>
+  </div>
+
+
+
+  <div class="accordion-item">
+    <div class="accordion-header">
+     2. برداشت کالبدی و فضایی
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>شامل تمامی  بررسی های که منجر به شکل گیری فرم  تراکم و ترکیب فضاها می شود</p>
+
+      <!-- آکاردئون داخلی ۱ -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+         تعداد طبقات
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>شامل زیرزمین و پشت‌بام</p>
+        </div>
+      </div>
+
+      <!-- آکاردئون داخلی ۲ -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          ابعاد زمین و سطح اشغال
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>طول × عرض، درصد سطح اشغال</p>
+        </div>
+      </div>
+	  
+	  <div class="accordion-item">
+        <div class="accordion-header">
+          ورودی‌ها
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>تعداد، موقعیت و نوع دسترسی</p>
+        </div>
+      </div>
+	  
+	  <div class="accordion-item">
+        <div class="accordion-header">
+          تقسیم‌بندی فضاها
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>عمومی، خصوصی، خدماتی</p>
+        </div>
+      </div>
+	  
+	  
+	  <div class="accordion-item">
+        <div class="accordion-header">
+          روابط و سیرکلاسیون حرکتی
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>توالی، مسیرها، گره‌ها</p>
+        </div>
+      </div>
+	  
+    </div>
+  </div>
+  
+  
+  
+  
+    <div class="accordion-item">
+    <div class="accordion-header">
+     3. برداشت ابعادی و عملکردی
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>شامل بررسی فضاهای پرت و تعیین عملکردهای داخلی ساختمان و ضرورت های فضایی می باشد</p>
+
+      <!-- آکاردئون داخلی ۱ -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+         فهرست فضاها
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>نام، کاربری، ابعاد</p>
+        </div>
+      </div>
+
+      <!-- آکاردئون داخلی ۲ -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          مقایسه با استاندارد
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>آیا مطابق آیین‌نامه هست یا نه</p>
+        </div>
+      </div>
+	  
+	  <div class="accordion-item">
+        <div class="accordion-header">
+          فضاهای ناکارآمد
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>پرت، کم‌کاربرد یا اشتباه عملکردی</p>
+        </div>
+      </div>
+	  
+	  <div class="accordion-item">
+        <div class="accordion-header">
+          تطابق با نیاز کاربران
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>بررسی استفاده واقعی</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+      <div class="accordion-item">
+    <div class="accordion-header">
+     4. برداشت سازه و ایمنی
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>شامل  بررسی های مرتبط با مقاومت سازه و ایمنی فضا می باشد</p>
+
+      <!-- آکاردئون داخلی ۱ -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+         نوع سیستم سازه
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>بتنی، فلزی، سنتی...</p>
+        </div>
+      </div>
+
+      <!-- آکاردئون داخلی ۲ -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          سلامت سازه
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>ترک، نشست، پوسیدگی...</p>
+        </div>
+      </div>
+	  
+	  <div class="accordion-item">
+        <div class="accordion-header">
+          پایداری در برابر زلزله
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>نیاز به مقاوم‌سازی یا نهی</p>
+        </div>
+      </div>
+	  
+	  <div class="accordion-item">
+        <div class="accordion-header">
+          مسیرهای فرار
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>ایمنی و دسترسی خروج اضطراری</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+   <div class="accordion-item">
+    <div class="accordion-header">
+    5. برداشت تأسیسات، اقلیم، فرهنگی و اقتصادی
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>شامل  بررسی های مرتبط با مقاومت سازه و ایمنی فضا می باشد</p>
+
+      <!-- آکاردئون داخلی ۱ -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+         سیستم‌های تأسیساتی
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>بتنی، فلزی، سنتی...</p>
+        </div>
+      </div>
+
+      <!-- آکاردئون داخلی ۲ -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          نورگیری طبیعی و مصنوعی
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>ترک، نشست، پوسیدگی...</p>
+        </div>
+      </div>
+	  
+	  <div class="accordion-item">
+        <div class="accordion-header">
+          عایق‌کاری و صدا
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>نیاز به مقاوم‌سازی یا نهی</p>
+        </div>
+      </div>
+	  
+	  <div class="accordion-item">
+        <div class="accordion-header">
+          ملاحظات فرهنگی
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>ایمنی و دسترسی خروج اضطراری</p>
+        </div>
+      </div>
+	  
+	   <div class="accordion-item">
+        <div class="accordion-header">
+          اقتصاد بهره‌برداری
+          <span class="plus-minus">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>اهزینه نگهداری، سود redesign</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll(".accordion-header").forEach(header => {
+    header.addEventListener("click", () => {
+      const item = header.parentElement;
+      const isActive = item.classList.contains("active");
+
+      // اگر هم‌سطح‌های این آکاردئون رو ببند
+      const siblings = Array.from(item.parentElement.children).filter(
+        child => child !== item && child.classList.contains("accordion-item")
+      );
+      siblings.forEach(sibling => sibling.classList.remove("active"));
+
+      // وضعیت خود آکاردئون رو تغییر بده
+      item.classList.toggle("active", !isActive);
+    });
+  });
+</script>
+
+</body>
+</html>
