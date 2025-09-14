@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>فرم برداشت تاسیسات مکانیکی ساختمان</title>
+ <link rel="stylesheet" href="file/mep.css">
+</head>
+<body>
+<button onclick="location.href='index.html'" class="soft-btn">
+  منو
+</button>
+
+<style>
+.soft-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  background: #a8d8ff; /* آبی پاستیلی */
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+
+  /* Soft UI سایه‌ها */
+  box-shadow: 6px 6px 12px #91bcd9,
+              -6px -6px 12px #bff3ff;
+  transition: all 0.2s ease-in-out;
+}
+
+.soft-btn:active {
+  box-shadow: inset 6px 6px 12px #91bcd9,
+              inset -6px -6px 12px #bff3ff;
+}
+</style>
+
+<header>
+  تعیین و برداشت وضع موجود تاسیسات مکانیکی ساختمان
+</header>
+
+<div class="accordion-container">
+
+  <!-- مرحله 1 -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      مرحله 1 – تأسیسات آب سرد و گرم مصرفی
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>بررسی مسیر لوله‌های اصلی و فرعی آب سرد و گرم مصرفی</p>
+      <ul>
+        <li>محل ورودی آب به ساختمان</li>
+        <li>نوع لوله‌ها و اتصالات</li>
+        <li>وضعیت شیرآلات</li>
+        <li>ارتفاع و محل نصب تجهیزات</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- مرحله 2 -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      مرحله 2 – فاضلاب و آب‌های بهداشتی
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <ul>
+        <li>مسیر لوله فاضلاب اصلی و فرعی</li>
+        <li>محل سیفون و کفشور</li>
+        <li>جنس لوله‌ها و اتصالات</li>
+        <li>وضعیت دریچه‌های بازدید</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- مرحله 3 -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      مرحله 3 – گاز
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <ul>
+        <li>محل ورودی گاز شهری</li>
+        <li>مسیر لوله کشی به اجاق، آبگرمکن و بخاری</li>
+        <li>نوع لوله و اتصالات</li>
+        <li>وضعیت شیر اصلی و ایمنی</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- مرحله 4 -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      مرحله 4 – تهویه و هود
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <ul>
+        <li>مسیر کانال‌ها و هواکش‌ها</li>
+        <li>محل فن و خروجی هوا</li>
+        <li>هود آشپزخانه و مسیر خروج هوا</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- مرحله 5 -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      مرحله 5 – گرمایش (پکیج، شوفاژ، رادیاتور)
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <ul>
+        <li>محل پکیج یا موتورخانه</li>
+        <li>مسیر لوله‌های رفت و برگشت شوفاژ</li>
+        <li>محل رادیاتورها و شیرها</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- مرحله 6 -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      مرحله 6 – سرمایش (چیلر، اسپلیت، فن کویل)
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <ul>
+        <li>مسیر لوله‌های سرمایش و آب سرد</li>
+        <li>محل یونیت‌ها و کانال‌ها</li>
+        <li>وضعیت کمپرسور و فن کویل</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- مرحله 7 -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      مرحله 7 – لوله بخاری، هود و تجهیزات خاص
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <ul>
+        <li>مسیر دودکش و لوله بخاری</li>
+        <li>مسیر هود و تجهیزات آشپزخانه</li>
+        <li>سایر سیستم مکانیکی خاص</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- مرحله 8 -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      مرحله 8 – ترسیم پلان مکانیکی و نمایش علائم
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>در این بخش یک پلان ساده جهت جانمایی تجهیزات مکانیکی، لوله‌ها، رادیاتورها، فن و کانال‌ها رسم شده است و یک <strong>راهنمای علائم</strong> (Legend) برای نمادهای مورد استفاده آورده شده است.</p>
+
+      <h4>راهنمای علائم</h4>
+      <ul>
+        <li>● لوله آب سرد و گرم</li>
+        <li>⊙ فاضلاب</li>
+        <li>◻ گاز</li>
+        <li>|— کانال تهویه / هود</li>
+        <li>◯ رادیاتور / فن کویل</li>
+        <li>═ مسیر بخاری / دودکش</li>
+      </ul>
+
+      <h4 style="margin-top:14px;">نمونه پلان ساده (برای آموزش)</h4>
+      <div style="border:1px dashed #c8d0dd;padding:10px;border-radius:8px;margin-top:10px;text-align:center;">
+        <img src="images/mep.jpg" alt="نمونه پلان مکانیکی" style="max-width:100%;border-radius:8px;"/>
+      </div>
+      <p style="margin-top:12px;">تذکر: این پلان نمونه برای آموزش است. هنگام برداشت واقعی اندازه‌ها را با متر ثبت کرده و در نقشه‌ی CAD یا PDF پیاده کنید.</p>
+    </div>
+  </div>
+
+</div>
+
+<script  src="file/mep.js"></script>
+
+</body>
+</html>

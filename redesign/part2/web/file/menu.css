@@ -1,0 +1,59 @@
+ @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: #e0e5ec;
+      direction: rtl;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding-top: 50px;
+    }
+
+    header {
+      background: #e0e5ec;
+      box-shadow: 0 4px 10px rgba(163,177,198,0.4), 0 -4px 10px rgba(255,255,255,0.6);
+      padding: 25px 40px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      border-radius: 0 0 30px 30px;
+      cursor: pointer;
+    }
+
+    .menu {
+      width: 300px;
+      margin-top: 20px;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .menu button {
+      padding: 15px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+      box-shadow: 5px 5px 10px #a3b1c6, -5px -5px 10px #ffffff;
+      transition: background 0.3s ease;
+    }
+
+    .menu button:hover {
+      background: #45a049;
+    }
+
+    @media (max-width: 480px) {
+      header { font-size: 1.5rem; padding: 20px; }
+      .menu button { font-size: 1rem; padding: 12px; }
+      .menu { width: 80%; gap: 15px; }
+    }
