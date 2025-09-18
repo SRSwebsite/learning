@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>دیاگرام</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: #e0e5ec;
+      direction: rtl;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: #e0e5ec;
+      box-shadow: 0 4px 10px rgba(163, 177, 198, 0.4), 0 -4px 10px rgba(255, 255, 255, 0.6);
+      padding: 20px;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      border-radius: 0 0 30px 30px;
+    }
+
+    .accordion-container {
+      width: 90%;
+      max-width: 900px;
+      margin: 40px auto;
+      background: #e0e5ec;
+      border-radius: 20px;
+      box-shadow: 8px 8px 15px #a3b1c6, -8px -8px 15px #ffffff;
+      flex-grow: 1;
+    }
+
+    .accordion-item { border-bottom: 1px solid #d1d9e6; }
+
+    .accordion-header {
+      background: #e0e5ec;
+      padding: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s ease;
+    }
+    .accordion-header:hover { background: #dfe4ea; }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      background: #f1f3f6;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 20px;
+    }
+    .accordion-item.active > .accordion-content {
+      max-height: 90vh;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .accordion-content p, .accordion-content li {
+      margin: 10px 0;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    .plus-minus { font-size: 24px; transition: transform 0.3s ease; }
+    .accordion-item.active > .accordion-header .plus-minus { transform: rotate(45deg); }
+
+    .accordion-content::-webkit-scrollbar { width: 8px; }
+    .accordion-content::-webkit-scrollbar-thumb { background: #ccc; border-radius: 8px; }
+
+    @media (max-width: 768px) {
+      .accordion-container { width: 95%; }
+      .accordion-header { font-size: 1rem; padding: 18px; }
+      header { font-size: 1.5rem; padding: 15px; }
+    }
+    @media (max-width: 480px) {
+      header { font-size: 1.3rem; }
+      .accordion-header { font-size: 0.95rem; padding: 16px; }
+      .accordion-content { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  دیاگرام
+</header>
+
+<div class="accordion-container">
+
+  <!-- مرحله 1 -->
+<div class="accordion-item">
+  <div class="accordion-header">
+    مرحله1_تعیین عملکرد اصلی پروژه
+    <span class="plus-minus">+</span>
+  </div>
+  <div class="accordion-content">
+    <p>در این مرحله، طی جلسه‌ای با کارفرما نیازها و خواسته‌های او بررسی شده و عملکرد اصلی پروژه مشخص می‌شود.</p>
+    <ul>
+      <li>شناسایی نیازهای کارفرما: بررسی دقیق اهداف و خواسته‌ها.</li>
+      <li>تعیین عملکرد اصلی پروژه: مشخص کردن مسئله یا خروجی اصلی پروژه.</li>
+      <li>سبک و سلیقه کارفرما: توجه به اولویت‌ها، ترجیحات بصری و سبک مدنظر.</li>
+      <li>محدودیت‌ها و الزامات پروژه: شناسایی محدودیت‌های زمانی، بودجه‌ای و فنی.</li>
+      <li>جمع‌بندی و تایید اولیه: اطمینان از موافقت کارفرما با عملکرد و مسیر مشخص‌شده.</li>
+    </ul>
+  </div>
+</div>
+
+
+ 
+ <!-- مرحله 2 -->
+<div class="accordion-item">
+  <div class="accordion-header">
+    مرحله2_تعیین ریز عملکردهای مورد نیاز پروژه
+    <span class="plus-minus">+</span>
+  </div>
+  <div class="accordion-content">
+    <p>در این مرحله، عملکردهای جزئی و نیازهای بخش‌های مختلف پروژه مشخص می‌شود تا طراحی و اجرا مطابق با آن‌ها باشد.</p>
+    <ul>
+      <li>اتاق مدیر: طراحی و تجهیز متناسب با نیاز مدیریتی و ملاقات‌ها.</li>
+      <li>اتاق کارمندان: فضای کاری مشترک، میز و تجهیزات لازم.</li>
+      <li>اتاق جلسات: مکان مناسب برای برگزاری جلسات داخلی و مشتریان.</li>
+      <li>فضای استراحت و پذیرایی: ایجاد فضایی برای استراحت کارکنان و پذیرایی از مهمان‌ها.</li>
+      <li>فضاهای پشتیبانی و خدمات: مانند اتاق پرینتر، آرشیو و انبار.</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- مرحله 3 -->
+<div class="accordion-item">
+  <div class="accordion-header">
+    مرحله3_تعیین ابعاد و مساحت استاندارد هر فضا
+    <span class="plus-minus">+</span>
+  </div>
+  <div class="accordion-content">
+    <p>در این مرحله، ابعاد و مساحت استاندارد مورد نیاز برای هر فضای پروژه تعیین می‌شود تا عملکرد مطلوب و راحتی کاربران تضمین شود.</p>
+    <ul>
+      <li>مشخص کردن حداقل و حداکثر مساحت هر فضا (مثلاً اتاق مدیر، اتاق کارمندان، اتاق جلسات).</li>
+      <li>رعایت استانداردهای طراحی داخلی و ارگونومی در تعیین ابعاد.</li>
+      <li>بررسی فضای عبور و دسترسی و مسیرهای ارتباطی بین فضاها.</li>
+      <li>در نظر گرفتن تجهیزات و مبلمان مورد نیاز هر فضا و فضای کافی برای استفاده راحت.</li>
+      <li>تنظیم نقشه‌های اولیه با ابعاد استاندارد برای شروع طراحی دقیق.</li>
+    </ul>
+    
+    <p>جدول پیشنهادی مساحت فضاهای اداری (شرکت کامپیوتری 120 متری):</p>
+    <table border="1" cellspacing="0" cellpadding="5">
+      <thead>
+        <tr>
+          <th>فضا</th>
+          <th>حداقل مساحت (مترمربع)</th>
+          <th>حداکثر مساحت (مترمربع)</th>
+          <th>توضیحات</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>اتاق کنفرانس و مدیریت</td>
+          <td>20</td>
+          <td>25</td>
+          <td>یک فضا برای جلسات و مدیریت، ترکیبی و کاربردی</td>
+        </tr>
+        <tr>
+          <td>فضای کار تعاملی (Workstation)</td>
+          <td>40</td>
+          <td>50</td>
+          <td>مکان برای 6-8 کارمند با میز و تجهیزات کامپیوتری</td>
+        </tr>
+        <tr>
+          <td>آبدارخانه کامپکت</td>
+          <td>4</td>
+          <td>6</td>
+          <td>فضای کوچک برای آماده‌سازی نوشیدنی و غذا</td>
+        </tr>
+        <tr>
+          <td>بایگانی کوچک</td>
+          <td>3</td>
+          <td>5</td>
+          <td>فضای نگهداری اسناد و فایل‌ها</td>
+        </tr>
+        <tr>
+          <td>سرویس بهداشتی</td>
+          <td>4</td>
+          <td>6</td>
+          <td>فضای استاندارد برای یک یا دو سرویس</td>
+        </tr>
+        <tr>
+          <td>فضای انتظار</td>
+          <td>6</td>
+          <td>8</td>
+          <td>محل نشستن مهمانان و بازدیدکنندگان</td>
+        </tr>
+      </tbody>
+    </table>
+
+  <p>برای پیدا کردن مساحت و ابعاد استاندارد هر فضا می‌توان از منابع زیر استفاده کرد:</p>
+<ul>
+  <li>
+    کتاب «طراحی فضاهای داخلی» اثر پریرا و همکاران
+    <button onclick="copyLink('https://example.com/interior-design-book')">کپی لینک</button>
+  </li>
+  <li>
+    مراجع استاندارد سازمان ملی استاندارد ایران (INSO)
+    <button onclick="copyLink('https://www.isiri.gov.ir')">کپی لینک</button>
+  </li>
+  <li>
+    راهنمای طراحی معماری فضاهای اداری توسط سازمان جهانی استاندارد (ISO)
+    <button onclick="copyLink('https://www.iso.org/standard/53920.html')">کپی لینک</button>
+  </li>
+  <li>
+    کتاب «Space Planning Basics» اثر Mark Karlen
+    <button onclick="copyLink('https://www.amazon.com/Space-Planning-Basics-Mark-Karlen/dp/0471729851')">کپی لینک</button>
+  </li>
+  <li>
+    مقالات و منابع آنلاین دانشگاهی در زمینه طراحی ارگونومی و ابعاد فضا
+    <button onclick="copyLink('https://scholar.google.com')">کپی لینک</button>
+  </li>
+</ul>
+  </div>
+</div>
+
+
+  <!-- مرحله 4 -->
+<div class="accordion-item">
+  <div class="accordion-header">
+    مرحله4_تعیین تعداد کاربران برای هر فضا (برنامه فیزیکی)
+    <span class="plus-minus">+</span>
+  </div>
+  <div class="accordion-content">
+    <p>در این مرحله، تعداد کاربران و ظرفیت هر فضای پروژه مشخص می‌شود تا طراحی داخلی و تقسیم‌بندی فضا بر اساس نیاز واقعی انجام گیرد. این مرحله به ایجاد برنامه فیزیکی پروژه کمک می‌کند و اطمینان می‌دهد که فضاها برای کاربران کافی و کاربردی هستند.</p>
+    
+    <p>جدول ظرفیت کاربران فضاهای اداری (شرکت کامپیوتری 120 متری):</p>
+    <table border="1" cellspacing="0" cellpadding="5">
+      <thead>
+        <tr>
+          <th>فضا</th>
+          <th>تعداد کاربران حداقل</th>
+          <th>تعداد کاربران حداکثر</th>
+          <th>توضیحات</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>اتاق کنفرانس و مدیریت</td>
+          <td>1</td>
+          <td>6</td>
+          <td>یک مدیر و مهمانان در جلسات</td>
+        </tr>
+        <tr>
+          <td>فضای کار تعاملی (Workstation)</td>
+          <td>6</td>
+          <td>8</td>
+          <td>کارمندان اصلی شرکت</td>
+        </tr>
+        <tr>
+          <td>آبدارخانه کامپکت</td>
+          <td>1</td>
+          <td>2</td>
+          <td>برای استفاده همزمان کارکنان محدود</td>
+        </tr>
+        <tr>
+          <td>بایگانی کوچک</td>
+          <td>0</td>
+          <td>1</td>
+          <td>کاربری محدود، استفاده نوبتی</td>
+        </tr>
+        <tr>
+          <td>سرویس بهداشتی</td>
+          <td>1</td>
+          <td>2</td>
+          <td>استفاده همزمان محدود</td>
+        </tr>
+        <tr>
+          <td>فضای انتظار</td>
+          <td>2</td>
+          <td>4</td>
+          <td>برای مهمانان و بازدیدکنندگان</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <p>با توجه به ظرفیت کاربران، می‌توان چیدمان، تعداد میزها و مسیرهای عبور را برنامه‌ریزی کرد تا فضای مناسب، راحت و کاربردی ایجاد شود.</p>
+  </div>
+</div>
+
+
+ <!-- مرحله 4-2 -->
+<div class="accordion-item">
+  <div class="accordion-header">
+    مرحله5_ضوابط و قوانین هر فضا 
+    <span class="plus-minus">+</span>
+  </div>
+  <div class="accordion-content">
+    <p>در این مرحله، ضوابط و قوانین مرتبط با هر فضای پروژه بررسی می‌شود تا طراحی داخلی و چیدمان فضا مطابق مقررات باشد. رعایت این قوانین باعث می‌شود پروژه ایمن، قانونی و استاندارد باشد و مشکلات احتمالی در مراحل بعدی کاهش یابد.</p>
+    
+    <p>جدول ضوابط و قوانین برای فضاهای اداری:</p>
+    <table border="1" cellspacing="0" cellpadding="5">
+      <thead>
+        <tr>
+          <th>فضا</th>
+          <th>شهرداری</th>
+          <th>آیین‌نامه ملی ساختمان</th>
+          <th>صنف شرکت‌های کامپیوتری</th>
+          <th>آتش‌نشانی</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>اتاق کنفرانس و مدیریت</td>
+          <td>حداقل ارتفاع سقف 2.7 متر، تهویه مناسب</td>
+          <td>فضای لازم برای مسیرهای خروج اضطراری</td>
+          <td>تجهیز به میز و صندلی استاندارد برای جلسات</td>
+          <td>دسترسی آسان به خاموش‌کننده‌ها و راه خروج</td>
+        </tr>
+        <tr>
+          <td>فضای کار تعاملی (Workstation)</td>
+          <td>نورگیری طبیعی مناسب، تهویه کافی</td>
+          <td>حداقل فضای کاری 4-6 مترمربع به ازای هر کارمند</td>
+          <td>میز و صندلی استاندارد برای کار با کامپیوتر</td>
+          <td>راه‌های خروج اضطراری و سیستم اعلام حریق</td>
+        </tr>
+        <tr>
+          <td>آبدارخانه کامپکت</td>
+          <td>تأیید تجهیزات بهداشتی توسط شهرداری</td>
+          <td>فضای کافی برای حرکت ایمن و تهویه</td>
+          <td>استفاده از وسایل ایمن و استاندارد صنفی</td>
+          <td>دسترسی به خاموش‌کننده و سیستم اعلام حریق</td>
+        </tr>
+        <tr>
+          <td>بایگانی کوچک</td>
+          <td>ابعاد و استحکام مناسب طبق مقررات شهرداری</td>
+          <td>حداقل فاصله با مسیرهای خروجی</td>
+          <td>نگهداری اسناد طبق استاندارد صنفی</td>
+          <td>قرار دادن مواد قابل اشتعال به دور از منبع حرارت</td>
+        </tr>
+        <tr>
+          <td>سرویس بهداشتی</td>
+          <td>لوله‌کشی و تهویه طبق قوانین شهرداری</td>
+          <td>فضای کافی برای جابجایی و دسترسی</td>
+          <td>تجهیزات بهداشتی استاندارد صنفی</td>
+          <td>امکان خروج اضطراری و دسترسی آسان</td>
+        </tr>
+        <tr>
+          <td>فضای انتظار</td>
+          <td>نورگیری طبیعی، دسترسی آسان از ورودی</td>
+          <td>فضای کافی برای تردد و رعایت حداقل فاصله</td>
+          <td>صندلی و تجهیزات مطابق استاندارد صنفی</td>
+          <td>دسترسی به راه خروج و تجهیزات ایمنی</td>
+        </tr>
+      </tbody>
+    </table>
+	
+	<p>برای دسترسی به منابع و مراجع قانونی مرتبط با طراحی فضاهای اداری می‌توانید از لینک‌های زیر استفاده کنید:</p>
+<ul>
+  <li>
+    آیین‌نامه ملی ساختمان ایران
+    <button onclick="copyLink('https://www.saba.ir/standard/building')">کپی لینک</button>
+  </li>
+  <li>
+    قوانین و مقررات شهرداری در ساختمان‌های اداری
+    <button onclick="copyLink('https://www.shahrdari.ir/regulations')">کپی لینک</button>
+  </li>
+  <li>
+    استانداردهای صنف شرکت‌های کامپیوتری
+    <button onclick="copyLink('https://www.computer-industry.ir/standards')">کپی لینک</button>
+  </li>
+  <li>
+    الزامات ایمنی و آتش‌نشانی
+    <button onclick="copyLink('https://www.iranshahr.ir/fire-safety')">کپی لینک</button>
+  </li>
+</ul>
+  </div>
+</div>
+
+
+<!-- مرحله6 -->
+<div class="accordion-item">
+  <div class="accordion-header">
+    مرحله6_تعیین تجهیزات الکتریکی هر فضا 
+    <span class="plus-minus">+</span>
+  </div>
+  <div class="accordion-content">
+    <p>در این مرحله، تجهیزات و نیازهای الکتریکی هر فضای پروژه مشخص می‌شود تا طراحی برق، روشنایی و سیستم‌های الکتریکی مطابق استاندارد و نیاز واقعی انجام گیرد.</p>
+    
+    <p>جدول تجهیزات الکتریکی پیشنهادی برای فضاهای اداری (شرکت کامپیوتری 120 متری):</p>
+    <table border="1" cellspacing="0" cellpadding="5">
+      <thead>
+        <tr>
+          <th>فضا</th>
+          <th>نور مورد نیاز</th>
+          <th>بار الکتریکی تقریبی</th>
+          <th>کلید و پریز</th>
+          <th>جعبه تقسیم / تابلو برق</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>اتاق کنفرانس و مدیریت</td>
+          <td>400-500 لوکس (LED سقفی و نور جانبی)</td>
+          <td>3-4 کیلووات</td>
+          <td>کلید چند حالته، 6-8 پریز برق</td>
+          <td>یک شاخه از تابلو اصلی با حفاظت فیوز</td>
+        </tr>
+        <tr>
+          <td>فضای کار تعاملی (Workstation)</td>
+          <td>500-600 لوکس (نور سقفی و چراغ میز)</td>
+          <td>5-6 کیلووات</td>
+          <td>هر کاربر 2 پریز، کلید کنترل مرکزی نور</td>
+          <td>شاخه مجزا از تابلو با فیوز و محافظ اضافه بار</td>
+        </tr>
+        <tr>
+          <td>آبدارخانه کامپکت</td>
+          <td>300-400 لوکس</td>
+          <td>1-2 کیلووات (یخچال، کتری برقی، مایکروویو)</td>
+          <td>2-3 پریز استاندارد</td>
+          <td>متصل به شاخه کمکی تابلو با فیوز جدا</td>
+        </tr>
+        <tr>
+          <td>بایگانی کوچک</td>
+          <td>200-300 لوکس (نور سقفی)</td>
+          <td>0.5-1 کیلووات</td>
+          <td>1 پریز برای تجهیزات ضروری</td>
+          <td>متصل به شاخه اصلی فضای اداری</td>
+        </tr>
+        <tr>
+          <td>سرویس بهداشتی</td>
+          <td>200-300 لوکس (نور سقفی و آیینه)</td>
+          <td>0.5-1 کیلووات</td>
+          <td>1 پریز برای تجهیزات ضروری</td>
+          <td>متصل به شاخه اصلی تابلو با فیوز محافظ</td>
+        </tr>
+        <tr>
+          <td>فضای انتظار</td>
+          <td>300-400 لوکس (نور سقفی و دیواری)</td>
+          <td>1 کیلووات</td>
+          <td>1-2 پریز برای تجهیزات الکترونیکی</td>
+          <td>متصل به شاخه اصلی تابلو</td>
+        </tr>
+      </tbody>
+    </table>
+	<!-- نتیجه گیری فنی بار الکتریکی -->
+<p><strong>جمع بار الکتریکی تقریبی پروژه:</strong> حدود 12-15 کیلووات</p>
+<p>نکته فنی: برق موجود که به این بخش از ساختمان وارد شده، یک انشعاب تک‌سیم از داکت اصلی است و تنها برای روشنایی طراحی شده است. بنابراین برای پشتیبانی از بار کامل تجهیزات الکتریکی فضاهای اداری (Workstation، آبدارخانه، سرویس و ...)، نیاز به بازنگری در شاخه‌بندی، کابل‌کشی و تابلو برق داریم. تابلو جدید باید دارای فیوزها و حفاظت‌های جداگانه برای هر فضا و تجهیزات پرمصرف باشد.</p>
+
+
+    <p>منابع و مراجع برای طراحی تجهیزات الکتریکی:</p>
+    <ul>
+      <li>
+        مبحث 13 مقررات ملی ساختمان (برق و روشنایی)
+        <button onclick="copyLink('https://www.saba.ir/standard/building/mabhas13')">کپی لینک</button>
+      </li>
+      <li>
+        استانداردهای نورپردازی داخلی (IES Lighting Standards)
+        <button onclick="copyLink('https://www.ies.org/standards')">کپی لینک</button>
+      </li>
+      <li>
+        دستورالعمل‌های ایمنی برق و حفاظت الکتریکی
+        <button onclick="copyLink('https://www.iee.org/electrical-safety')">کپی لینک</button>
+      </li>
+      <li>
+        طراحی برق و روشنایی اداری (کتاب‌های تخصصی)
+        <button onclick="copyLink('https://www.amazon.com/Office-Electrical-Design')">کپی لینک</button>
+      </li>
+    </ul>
+	
+	 </div>
+</div>
+ <!-- مرحله7 -->
+<div class="accordion-item">
+  <div class="accordion-header">
+    مرحله7_تعیین تاسیسات مکانیکی مورد نیاز هر فضا
+    <span class="plus-minus">+</span>
+  </div>
+  <div class="accordion-content">
+    <p>در این مرحله، تاسیسات مکانیکی پروژه مورد بررسی قرار می‌گیرد تا طراحی لوله‌کشی آب، فاضلاب، گاز، سیستم تهویه و تجهیزات گرمایشی و تهویه مطبوع مطابق استاندارد انجام شود. این بررسی برای هر فضای پروژه ضروری است تا ایمنی، راحتی و عملکرد صحیح تجهیزات تضمین شود.</p>
+    
+    <p>جدول تاسیسات مکانیکی پیشنهادی برای فضاهای اداری (شرکت کامپیوتری 120 متری):</p>
+    <table border="1" cellspacing="0" cellpadding="5">
+      <thead>
+        <tr>
+          <th>فضا</th>
+          <th>لوله‌کشی آب</th>
+          <th>فاضلاب</th>
+          <th>گاز</th>
+          <th>تهویه / هود</th>
+          <th>سیستم گرمایشی / بخاری</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>اتاق کنفرانس و مدیریت</td>
+          <td>اتصال به آب آشامیدنی در نزدیک آبدارخانه یا سینک کوچک</td>
+          <td>نیاز مستقیم ندارد</td>
+          <td>نیاز ندارد</td>
+          <td>تهویه طبیعی + فن سقفی در صورت نیاز</td>
+          <td>هیتر برقی یا فن‌کوئل کوچک برای کنترل دما</td>
+        </tr>
+        <tr>
+          <td>فضای کار تعاملی (Workstation)</td>
+          <td>آب مستقیم نیاز ندارد</td>
+          <td>فاضلاب ندارد</td>
+          <td>گاز ندارد</td>
+          <td>تهویه مطبوع مرکزی / فن سقفی برای جریان هوا</td>
+          <td>سیستم گرمایش مرکزی / فن‌کوئل</td>
+        </tr>
+        <tr>
+          <td>آبدارخانه کامپکت</td>
+          <td>لوله‌کشی آب سرد و گرم برای سینک</td>
+          <td>اتصال به فاضلاب</td>
+          <td>در صورت نیاز برای کتری یا اجاق کوچک</td>
+          <td>هود برای اجاق یا بخاری کوچک</td>
+          <td>هیتر کوچک یا بخاری گازی کم مصرف</td>
+        </tr>
+        <tr>
+          <td>بایگانی کوچک</td>
+          <td>نیاز ندارد</td>
+          <td>نیاز ندارد</td>
+          <td>نیاز ندارد</td>
+          <td>تهویه طبیعی یا فن کوچک</td>
+          <td>گرمایش با سیستم مرکزی کافی است</td>
+        </tr>
+        <tr>
+          <td>سرویس بهداشتی</td>
+          <td>لوله‌کشی آب سرد و گرم</td>
+          <td>اتصال به فاضلاب</td>
+          <td>نیاز ندارد</td>
+          <td>فن تهویه سقفی الزامی</td>
+          <td>هیتر کوچک یا سیستم مرکزی</td>
+        </tr>
+        <tr>
+          <td>فضای انتظار</td>
+          <td>نیاز ندارد</td>
+          <td>نیاز ندارد</td>
+          <td>نیاز ندارد</td>
+          <td>تهویه مرکزی / جریان هوا</td>
+          <td>گرمایش با سیستم مرکزی</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>منابع و مراجع برای طراحی تاسیسات مکانیکی:</p>
+    <ul>
+      <li>
+        مبحث 16 مقررات ملی ساختمان (تاسیسات مکانیکی)
+        <button onclick="copyLink('https://www.saba.ir/standard/building/mabhas16')">کپی لینک</button>
+      </li>
+      <li>
+        استانداردهای لوله‌کشی آب و فاضلاب (ISIRI 12820)
+        <button onclick="copyLink('https://www.isiri.org.ir')">کپی لینک</button>
+      </li>
+      <li>
+        استانداردهای تهویه مطبوع داخلی و هودها (ASHRAE Standards)
+        <button onclick="copyLink('https://www.ashrae.org/technical-resources/standards-and-guidelines')">کپی لینک</button>
+      </li>
+      <li>
+        دستورالعمل نصب و ایمنی بخاری‌ها و هیترهای اداری
+        <button onclick="copyLink('https://www.nfpa.org')">کپی لینک</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- مرحله 8 -->
+<div class="accordion-item">
+  <div class="accordion-header">
+    مرحله8_ترسیم دیاگرام معماری
+    <span class="plus-minus">+</span>
+  </div>
+  <div class="accordion-content">
+    <p>در این مرحله، دیاگرام معماری پروژه ترسیم می‌شود تا روابط بین فضاها و جریان حرکتی کاربران به وضوح مشخص شود. اصول ترسیم دیاگرام معماری به شرح زیر است:</p>
+    
+    <ul>
+      <li><strong>استفاده از اشکال ساده:</strong> دایره، مربع، فلش و سایر اشکال هندسی ساده برای نشان دادن فضاها و مسیرها.</li>
+      <li><strong>تأکید روی روابط بین فضاها:</strong> هدف اصلی نمایش ارتباطات و دسترسی‌هاست، نه جزئیات سازه‌ای.</li>
+      <li><strong>رنگ‌های متفاوت برای کاربری‌های مختلف:</strong> مثلاً فضاهای عمومی، خصوصی و خدماتی با رنگ‌های متفاوت نمایش داده شوند.</li>
+      <li><strong>رعایت مقیاس تقریبی:</strong> حتی بصورت تقریبی، اندازه‌ها و نسبت فضاها حفظ شود تا درک مناسبی از ابعاد به دست آید.</li>
+    </ul>
+    
+    <p>نکته: این دیاگرام بیشتر برای <em>برنامه‌ریزی فضایی و تحلیل روابط عملکردی</em> استفاده می‌شود و الزامی به جزئیات اجرایی یا سازه‌ای ندارد.</p>
+  </div>
+</div>
+<!-- مرحله 9 -->
+<div class="accordion-item">
+  <div class="accordion-header">
+    مرحله9_دیاگرام عملکردی (Functional Diagram)
+    <span class="plus-minus">+</span>
+  </div>
+  <div class="accordion-content">
+    <p>در این مرحله، دیاگرام عملکردی یا Functional Diagram ترسیم می‌شود تا روابط عملکردی بین فضاهای پروژه مشخص گردد. اصول این دیاگرام به شرح زیر است:</p>
+    
+    <ul>
+      <li><strong>نمایش ساده فضاها:</strong> هر فضا را با یک دایره یا بیضی نشان دهید.</li>
+      <li><strong>نام‌گذاری فضاها:</strong> روی هر دایره یا بیضی، نام عملکرد آن فضا نوشته شود.</li>
+      <li><strong>ارتباط بین فضاها:</strong> بین فضاهایی که ارتباط مستقیم دارند، خط یا فلش رسم کنید.</li>
+      <li><strong>مثال:</strong> «پذیرش → فضای انتظار → اتاق مدیریت»</li>
+    </ul>
+    
+    <p>نکته: این دیاگرام بیشتر شبیه نقشه ذهنی است و به چیدمان واقعی یا مقیاس دقیق کاری ندارد. هدف اصلی تحلیل عملکرد و جریان کاربری بین فضاها است.</p>
+  </div>
+</div>
+<!-- مرحله 10 -->
+<div class="accordion-item">
+  <div class="accordion-header">
+    مرحله10_دیاگرام روابط (Adjacency Diagram)
+    <span class="plus-minus">+</span>
+  </div>
+  <div class="accordion-content">
+    <p>در این مرحله، دیاگرام روابط یا Adjacency Diagram ترسیم می‌شود تا **نزدیکی و ارتباط واقعی بین فضاها** به صورت نسبی نمایش داده شود. اصول این دیاگرام به شرح زیر است:</p>
+    
+    <ul>
+      <li><strong>چیدمان نسبی دایره‌ها:</strong> دایره‌ها یا اشکال هر فضا را طوری بچینید که ارتباطات عملکردی به وضوح دیده شوند.</li>
+      <li><strong>مثال چیدمان:</strong> آبدارخانه نزدیک کارمندان، سرویس‌ها نزدیک فضای عمومی، اتاق مدیریت در بخش خصوصی‌تر.</li>
+      <li><strong>نمایش شدت ارتباط:</strong> از رنگ یا ضخامت خطوط بین فضاها برای نشان دادن شدت ارتباط استفاده کنید.</li>
+      <li><strong>هدف:</strong> این دیاگرام کمک می‌کند تا روابط فضایی و نزدیکی‌ها قبل از طراحی چیدمان دقیق مشخص شوند.</li>
+    </ul>
+    
+    <p>نکته: Adjacency Diagram هنوز به جزئیات مقیاس یا چیدمان دقیق نپرداخته و تمرکز روی روابط فضایی و نزدیکی منطقی بین فضاهاست.</p>
+  </div>
+</div>
+<!-- مرحله 11 -->
+<div class="accordion-item">
+  <div class="accordion-header">
+    مرحله11_جانمایی روی پلان موجود
+    <span class="plus-minus">+</span>
+  </div>
+  <div class="accordion-content">
+    <p>در این مرحله، دیاگرام‌ها و عملکردهای فضا روی پلان موجود ساختمان جانمایی می‌شوند تا موقعیت تقریبی هر فضا مشخص گردد. اصول این مرحله به شرح زیر است:</p>
+    
+    <ul>
+      <li><strong>استفاده از پلان وضع موجود:</strong> پلان فعلی ساختمان را جلوی خود داشته باشید.</li>
+      <li><strong>جانمایی اشکال ساده:</strong> دایره‌ها، مستطیل‌ها یا اشکال ساده و شفاف روی پلان قرار دهید.</li>
+      <li><strong>عدم نیاز به مقیاس دقیق:</strong> هدف، مشخص شدن محل تقریبی عملکردها است و اندازه‌ها دقیق نیستند.</li>
+      <li><strong>تحلیل تغییرات:</strong> با این جانمایی می‌توان دید که کدام دیوارها، فضاها یا تاسیسات نیاز به تغییر دارند.</li>
+    </ul>
+    
+    <p>نکته: این مرحله، پل بین دیاگرام‌های عملکردی/روابط و طراحی چیدمان دقیق است و به تیم طراحی کمک می‌کند تا بازطراحی را با دیدی جامع شروع کند.</p>
+  </div>
+</div>
+<!-- مرحله 12 -->
+<div class="accordion-item">
+  <div class="accordion-header">
+    مرحله12_تعیین سطح مداخله تقریبی
+    <span class="plus-minus">+</span>
+  </div>
+  <div class="accordion-content">
+    <p>در این مرحله، سطح مداخلات لازم برای بازطراحی پروژه به صورت تقریبی مشخص می‌شود. این کار با مقایسه نیازهای جدید با وضعیت موجود انجام می‌گیرد.</p>
+    
+    <ul>
+      <li><strong>تغییر دیوارها:</strong> اگر دیواری باید جابه‌جا یا حذف شود، آن را مشخص کنید.</li>
+      <li><strong>تأسیسات برق و مکانیک:</strong> اگر سیستم‌های موجود کافی نیستند، یادداشت کنید تا در طراحی نهایی اصلاح شوند.</li>
+      <li><strong>کف و سقف:</strong> اگر نیاز به تغییر دارند، علامت‌گذاری کنید.</li>
+      <li><strong>نمایش در دیاگرام:</strong> می‌توانید این مداخلات را با رنگ یا هاشور در دیاگرام‌ها مشخص کنید تا میزان تغییرات به وضوح دیده شود.</li>
+    </ul>
+    
+    <p>نکته: این مرحله به شما کمک می‌کند تا قبل از طراحی نهایی، محدوده تغییرات، هزینه تقریبی و پیچیدگی پروژه را ارزیابی کنید. سطح مداخله دقیق‌تر در مرحله ترسیم نقشه جدید مشخص خواهد شد.</p>
+  </div>
+</div>
+<!-- مرحله 13 -->
+<div class="accordion-item">
+  <div class="accordion-header">
+    مرحله13_هماهنگی با کارفرما و ارائه آلترناتیوها
+    <span class="plus-minus">+</span>
+  </div>
+  <div class="accordion-content">
+    <p>در این مرحله، معمار با کارفرما هماهنگی انجام می‌دهد و چند گزینه پیشنهادی برای بازطراحی ارائه می‌کند تا تصمیمات کلان قبل از ترسیم نقشه نهایی گرفته شود.</p>
+    
+    <ul>
+      <li><strong>بررسی تغییرات پیشنهادی:</strong> دیوارهای قابل جابه‌جایی یا حذف، اصلاح تأسیسات، کف و سقف‌ها با کارفرما بررسی شود.</li>
+      <li><strong>تطبیق با نیازهای کارفرما:</strong> اولویت‌ها، ترجیحات فضایی و جریان حرکتی کاربران تأیید گردد.</li>
+      <li><strong>ارائه چند آلترناتیو:</strong> معمار می‌تواند 2 تا 3 گزینه پیشنهادی از چیدمان و جانمایی فضاها ارائه دهد تا کارفرما بر اساس نیاز، بودجه و ترجیح خود انتخاب کند.</li>
+      <li><strong>تعیین محدودیت‌ها و اولویت‌ها:</strong> محدودیت‌های بودجه، زمان، ضوابط قانونی و سایر ملاحظات قبل از طراحی نهایی مشخص شود.</li>
+      <li><strong>تصمیم‌گیری قبل از ترسیم دقیق:</strong> این مرحله کمک می‌کند طراحی نقشه نهایی سریع‌تر و دقیق‌تر انجام شود و از تغییرات متعدد بعدی جلوگیری شود.</li>
+    </ul>
+    
+    <p>نکته: مرحله هماهنگی و ارائه آلترناتیوها یک گام تحلیلی و مشاوره‌ای است و ترسیم کامل نقشه نهایی در مرحله بعد انجام می‌شود.</p>
+  </div>
+</div>
+ 
+ 
+ <!-- مرحله 14 -->
+<div class="accordion-item">
+  <div class="accordion-header">
+    مرحله14_منابع و نمونه دیاگرام‌ها
+    <span class="plus-minus">+</span>
+  </div>
+  <div class="accordion-content">
+    <p>برای یافتن نمونه دیاگرام‌های معماری و الهام‌گیری برای پروژه، می‌توانید از منابع آنلاین زیر استفاده کنید:</p>
+    
+    <ul>
+      <li>
+        جستجو در گوگل تصاویر: "Architectural Functional Diagram" یا "Office Layout Diagram"
+        <button onclick="copyLink('https://www.google.com/imghp')">کپی لینک</button>
+      </li>
+      <li>
+        وبسایت Pinterest برای نمونه دیاگرام‌های فضاهای اداری
+        <button onclick="copyLink('https://www.pinterest.com')">کپی لینک</button>
+      </li>
+      <li>
+        وبسایت ArchDaily برای پلان‌ها و دیاگرام‌های معماری حرفه‌ای
+        <button onclick="copyLink('https://www.archdaily.com')">کپی لینک</button>
+      </li>
+      <li>
+        سایت Behance برای نمونه پروژه‌ها و دیاگرام‌های خلاقانه
+        <button onclick="copyLink('https://www.behance.net')">کپی لینک</button>
+      </li>
+      <li>
+        جستجوی مقالات دانشگاهی در Google Scholar یا ResearchGate با کلیدواژه‌های "Functional Diagram Architecture"
+        <button onclick="copyLink('https://scholar.google.com')">کپی لینک</button>
+      </li>
+    </ul>
+
+    <p>نکته: این منابع برای مشاهده انواع دیاگرام‌ها، الهام گرفتن از چیدمان‌ها و تحلیل روابط فضایی بسیار مناسب هستند. می‌توانید نمونه‌ها را بررسی کرده و با پروژه خود مقایسه کنید.</p>
+
+    <h4>🔹 کلیدواژه‌های عمومی</h4>
+    <ul>
+      <li>Architectural diagram <button onclick="copyLink('Architectural diagram')">کپی</button></li>
+      <li>Space planning diagram <button onclick="copyLink('Space planning diagram')">کپی</button></li>
+      <li>Functional diagram architecture <button onclick="copyLink('Functional diagram architecture')">کپی</button></li>
+      <li>Adjacency diagram architecture <button onclick="copyLink('Adjacency diagram architecture')">کپی</button></li>
+      <li>Bubble diagram office <button onclick="copyLink('Bubble diagram office')">کپی</button></li>
+      <li>Office layout diagram <button onclick="copyLink('Office layout diagram')">کپی</button></li>
+      <li>Conceptual diagram architecture <button onclick="copyLink('Conceptual diagram architecture')">کپی</button></li>
+    </ul>
+
+    <h4>🔹 مخصوص پروژه تغییر کاربری به اداری</h4>
+    <ul>
+      <li>Office conversion architecture diagram <button onclick="copyLink('Office conversion architecture diagram')">کپی</button></li>
+      <li>Residential to office transformation diagram <button onclick="copyLink('Residential to office transformation diagram')">کپی</button></li>
+      <li>Adaptive reuse diagram architecture <button onclick="copyLink('Adaptive reuse diagram architecture')">کپی</button></li>
+      <li>Space planning office design <button onclick="copyLink('Space planning office design')">کپی</button></li>
+      <li>Office adjacency bubble diagram <button onclick="copyLink('Office adjacency bubble diagram')">کپی</button></li>
+      <li>Workplace layout concept <button onclick="copyLink('Workplace layout concept')">کپی</button></li>
+      <li>Office interior planning diagram <button onclick="copyLink('Office interior planning diagram')">کپی</button></li>
+    </ul>
+
+    <h4>🔹 برای جستجو در فارسی</h4>
+    <ul>
+      <li>دیاگرام معماری <button onclick="copyLink('دیاگرام معماری')">کپی</button></li>
+      <li>دیاگرام فضایی اداری <button onclick="copyLink('دیاگرام فضایی اداری')">کپی</button></li>
+      <li>دیاگرام تغییر کاربری <button onclick="copyLink('دیاگرام تغییر کاربری')">کپی</button></li>
+      <li>دیاگرام روابط فضاها <button onclick="copyLink('دیاگرام روابط فضاها')">کپی</button></li>
+      <li>دیاگرام عملکردی ساختمان اداری <button onclick="copyLink('دیاگرام عملکردی ساختمان اداری')">کپی</button></li>
+      <li>دیاگرام جانمایی در پلان <button onclick="copyLink('دیاگرام جانمایی در پلان')">کپی</button></li>
+    </ul>
+
+    <h4>🔹 عبارات تکمیلی برای دقت بیشتر</h4>
+    <p>می‌توانید این‌ها را کنار کلیدواژه اصلی بگذارید:</p>
+    <ul>
+      <li>flow (برای مسیر حرکت و سیرکولاسیون) <button onclick="copyLink('flow')">کپی</button></li>
+      <li>zoning (برای زون‌بندی عملکردی) <button onclick="copyLink('zoning')">کپی</button></li>
+      <li>concept (برای دیاگرام‌های مفهومی) <button onclick="copyLink('concept')">کپی</button></li>
+      <li>case study (برای نمونه‌های واقعی پروژه‌ها) <button onclick="copyLink('case study')">کپی</button></li>
+    </ul>
+
+    <p>🔍 نمونه جستجو در پینترست:</p>
+    <ul>
+      <li>“office adjacency bubble diagram” <button onclick="copyLink('office adjacency bubble diagram')">کپی</button></li>
+      <li>“adaptive reuse architecture diagram” <button onclick="copyLink('adaptive reuse architecture diagram')">کپی</button></li>
+      <li>“residential to office conversion plan” <button onclick="copyLink('residential to office conversion plan')">کپی</button></li>
+      <li>«دیاگرام روابط فضاهای اداری» <button onclick="copyLink('دیاگرام روابط فضاهای اداری')">کپی</button></li>
+    </ul>
+
+ 
+  </div>
+</div>
+
+
+
+</div>
+
+<script>
+  document.querySelectorAll(".accordion-header").forEach(header => {
+    header.addEventListener("click", () => {
+      const item = header.parentElement;
+      const isActive = item.classList.contains("active");
+
+      // بستن بقیه
+      const siblings = Array.from(item.parentElement.children).filter(
+        child => child !== item && child.classList.contains("accordion-item")
+      );
+      siblings.forEach(sibling => sibling.classList.remove("active"));
+
+      // باز یا بسته کردن فعلی
+      item.classList.toggle("active", !isActive);
+    });
+  });
+  
+  function copyLink(url) {
+  navigator.clipboard.writeText(url).then(() => {
+    alert('لینک کپی شد: ' + url);
+  }).catch(err => {
+    alert('خطا در کپی لینک: ' + err);
+  });
+}
+</script>
+
+</body>
+</html>
