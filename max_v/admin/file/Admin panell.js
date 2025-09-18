@@ -1,5 +1,5 @@
  const urlParams = new URLSearchParams(window.location.search);
-    const adminId = urlParams.get("admin_id") || "مدیر";
+    const adminId = urlParams.get("admin_id") || "خانم نرگس ملایی";
     document.getElementById("adminIdTitle").innerText = adminId;
 
     const scriptURL = "https://script.google.com/macros/s/AKfycbwnPKwvI7sQRaVazbXyFru72Z7YzaIq8EZ1PY93Bk6LWf8npYUHBiBcfaFOhyxo8wax/exec"; // ← لینک GAS
@@ -55,3 +55,4 @@ function hardReload() {
   const newUrl = `${currentUrl}?reload=${new Date().getTime()}`;
   window.location.href = newUrl;
 }
+
