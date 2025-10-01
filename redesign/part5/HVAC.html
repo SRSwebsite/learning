@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>دیاگرام</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: #e0e5ec;
+      direction: rtl;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: #e0e5ec;
+      box-shadow: 0 4px 10px rgba(163, 177, 198, 0.4), 0 -4px 10px rgba(255, 255, 255, 0.6);
+      padding: 20px;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      border-radius: 0 0 30px 30px;
+    }
+
+    .accordion-container {
+      width: 90%;
+      max-width: 900px;
+      margin: 40px auto;
+      background: #e0e5ec;
+      border-radius: 20px;
+      box-shadow: 8px 8px 15px #a3b1c6, -8px -8px 15px #ffffff;
+      flex-grow: 1;
+    }
+
+    .accordion-item { border-bottom: 1px solid #d1d9e6; }
+
+    .accordion-header {
+      background: #e0e5ec;
+      padding: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s ease;
+    }
+    .accordion-header:hover { background: #dfe4ea; }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      background: #f1f3f6;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 20px;
+    }
+    .accordion-item.active > .accordion-content {
+      max-height: 90vh;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .accordion-content p, .accordion-content li {
+      margin: 10px 0;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    .plus-minus { font-size: 24px; transition: transform 0.3s ease; }
+    .accordion-item.active > .accordion-header .plus-minus { transform: rotate(45deg); }
+
+    .accordion-content::-webkit-scrollbar { width: 8px; }
+    .accordion-content::-webkit-scrollbar-thumb { background: #ccc; border-radius: 8px; }
+
+    @media (max-width: 768px) {
+      .accordion-container { width: 95%; }
+      .accordion-header { font-size: 1rem; padding: 18px; }
+      header { font-size: 1.5rem; padding: 15px; }
+    }
+    @media (max-width: 480px) {
+      header { font-size: 1.3rem; }
+      .accordion-header { font-size: 0.95rem; padding: 16px; }
+      .accordion-content { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>انواع نورپردازی ساختمان</title>
+  <link rel="stylesheet" href="file/electric.css">
+</head>
+<body>
+
+
+<style>
+.soft-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  background: #a8d8ff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 6px 6px 12px #91bcd9,
+              -6px -6px 12px #bff3ff;
+  transition: all 0.2s ease-in-out;
+}
+.soft-btn:active {
+  box-shadow: inset 6px 6px 12px #91bcd9,
+              inset -6px -6px 12px #bff3ff;
+}
+
+
+
+/* file/menu.css — فقط استایل‌های مربوط به منو */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
+/* اگر فونت رو در جای دیگری لود می‌کنی، می‌تونی خط @import را حذف کنی. */
+
+/* دکمه باز/بسته منو */
+/* دکمه باز/بسته منو */
+#menuToggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: #4CAF50;
+  color: white;
+  font-size: 1.6rem;        /* کوچیک‌تر از قبل */
+  padding: 6px 10px;        /* کوچک‌تر */
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.25);
+  transition: background 0.3s ease;
+}
+
+#menuToggle:hover {
+  background: #45a049;
+}
+
+/* نوار کناری */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;             /* عرض کمتر */
+  height: 100%;
+  background: #0b29843d;
+  box-shadow: -2px 0 8px rgba(0, 255, 255, 0.55);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;                 /* فاصله کمتر بین دکمه‌ها */
+  padding: 55px 12px 12px;  /* کمتر از قبل */
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  direction: rtl;
+
+  /* اسکرول عمودی */
+  overflow-y: auto;
+  scrollbar-width: thin; /* برای مرورگرهای مدرن */
+}
+
+/* حالت فعال (باز شدن منو) */
+.sidebar.active {
+  transform: translateX(0);
+}
+
+/* استایل اسکرول‌بار در کروم/اج/سافاری */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar::-webkit-scrollbar-track {
+  background: #eee;
+  border-radius: 3px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 3px;
+}
+
+/* دکمه‌های داخل منو */
+.sidebar button {
+  padding: 8px 6px;          /* کوچیک‌تر */
+  font-size: 0.9rem;         /* کوچیک‌تر */
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  background: #4CAF50;
+  color: white;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px #a3b1c6, -2px -2px 5px #ffffff;
+  transition: background 0.2s ease, transform 0.08s ease;
+  text-align: right;
+}
+
+.sidebar button:hover,
+.sidebar button:focus {
+  background: #45a049;
+  transform: translateY(-1px);
+  outline: none;
+}
+
+/* حالت فشرده در صفحه‌های کوچک */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 170px;           /* باز هم باریک‌تر در موبایل */
+    padding: 50px 10px 10px;
+  }
+  #menuToggle {
+    font-size: 1.4rem;
+    padding: 5px 8px;
+    top: 12px;
+    right: 12px;
+  }
+  .sidebar button {
+    font-size: 0.85rem;
+    padding: 7px 5px;
+  }
+}
+
+
+/* ریسپانسیو */
+@media (max-width: 480px) {
+  .sidebar { width: 220px; padding: 60px 15px; }
+  #menuToggle { font-size: 1.8rem; padding: 8px 12px; top: 14px; right: 14px; }
+}
+
+</style>
+
+<header>
+  دسته‌بندی سیستم‌های سرمایش، گرمایش و تهویه (HVAC)
+  
+  
+<!-- منو (paste this into the <body> of any page) -->
+<div id="menuToggle" aria-controls="menuItems" aria-expanded="false">☰</div>
+
+<nav class="sidebar" id="menuItems" aria-hidden="true">
+ <button onclick="location.href='index.html'">منو </button>
+  <button onclick="location.href='noor.html'">نور و تاسیسات برق</button>
+  <button onclick="location.href='etfae harigh.html'">اطفاع حریق</button>
+  <button onclick="location.href='HVAC.html'">تاسیسات گرمایشی سرمایشی</button>
+  <button onclick="location.href='saghf kazeb.html'">سقف های کاذب</button>
+  <button onclick="location.href='electric.html'">دیوارهای سبک</button>
+  <button onclick="location.href='kafpoosh.html'">کف سازی</button>
+  <button onclick="location.href='wall01.html'">دیتیل</button>
+</nav>
+
+</header>
+
+<div class="accordion-container">
+
+  <!-- 1. سیستم گرمایش مرکزی -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      ۱ – سیستم گرمایش مرکزی (Central Heating)
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>سیستم گرمایش مرکزی با استفاده از بویلر، پکیج یا موتورخانه.</p>
+      <ul style="margin-right:20px; color:#555; line-height:1.7;">
+        <li>انواع: پکیج دیواری، موتورخانه با رادیاتور، گرمایش از کف</li>
+        <li>محل نصب: پکیج روی دیوار یا موتورخانه در زیرزمین یا فضای اختصاصی</li>
+        <li>تاسیسات مورد نیاز: لوله‌کشی آب گرم، رادیاتورها، پمپ سیرکولاتور، شیرهای کنترل و منبع انبساط</li>
+        <li>ضوابط: فاصله رادیاتورها از دیوار و پنجره، امکان سرویس و دسترسی آسان</li>
+      </ul>
+	  <div style="text-align:center; margin-top:15px;">
+      <img src="icon/mep/Central Heating.jpg" alt="نور کارگاهی" style="max-width:250px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.25);">
+    </div>
+    </div>
+  </div>
+
+  <!-- 2. سیستم سرمایش مرکزی -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      ۲ – سیستم سرمایش مرکزی (Central Cooling)
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>استفاده از چیلر، یونیت داخلی و کانال برای خنک کردن کل ساختمان.</p>
+      <ul style="margin-right:20px; color:#555; line-height:1.7;">
+        <li>انواع: چیلر آبی یا هواخنک، فن‌کوئل‌های سقفی یا دیواری</li>
+        <li>محل نصب: چیلر در پشت‌بام یا موتورخانه، یونیت داخلی داخل فضا</li>
+        <li>تاسیسات مورد نیاز: لوله‌کشی آب سرد، فن‌کوئل‌ها، کانال‌کشی، شیرها و پمپ‌ها</li>
+        <li>ضوابط: دسترسی برای سرویس، فاصله کافی از تجهیزات دیگر و رعایت استاندارد صوتی</li>
+      </ul>
+	   <div style="text-align:center; margin-top:15px;">
+      <img src="icon/mep/Central Cooling.webp" alt="نور کارگاهی" style="max-width:250px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.25);">
+    </div>
+    </div>
+  </div>
+
+  <!-- 3. سیستم تهویه مطبوع -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      ۳ – سیستم تهویه مطبوع (HVAC / Ventilation)
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>تأمین هوای تازه و تهویه مناسب در فضاهای داخلی.</p>
+      <ul style="margin-right:20px; color:#555; line-height:1.7;">
+        <li>انواع: تهویه مکانیکی (فن‌ها و هواساز)، تهویه طبیعی (دریچه و پنجره)</li>
+        <li>محل نصب: کانال‌های سقفی و دیواری، هواساز در موتورخانه یا فضای فنی</li>
+        <li>تاسیسات مورد نیاز: کانال‌کشی، فیلترهای هوا، فن‌ها، دمپرها و کنترلرها</li>
+        <li>ضوابط: جریان هوای یکنواخت، دسترسی برای سرویس، صدای کمتر و عدم ایجاد جریان مستقیم مزاحم</li>
+      </ul>
+	   <div style="text-align:center; margin-top:15px;">
+      <img src="icon/mep/HVAC_Ventilation.jpeg" alt="نور کارگاهی" style="max-width:250px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.25);">
+    </div>
+    </div>
+  </div>
+
+  <!-- 4. سیستم گرمایش و سرمایش مستقل -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      ۴ – سیستم‌های مستقل (Split / Window / VRF)
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>واحدهای مستقل برای هر اتاق یا فضا بدون نیاز به کانال‌کشی مرکزی.</p>
+      <ul style="margin-right:20px; color:#555; line-height:1.7;">
+        <li>انواع: اسپلیت دیواری، کولر گازی پنجره‌ای، سیستم VRF برای چند یونیت</li>
+        <li>محل نصب: یونیت داخلی روی دیوار یا سقف کاذب، یونیت خارجی روی تراس یا پشت‌بام</li>
+        <li>تاسیسات مورد نیاز: لوله‌کشی مبرد، برق، تخلیه کندانس و پایه‌های مقاوم</li>
+        <li>ضوابط: فاصله مناسب از دیوار و پنجره، دسترسی برای سرویس، رعایت استاندارد نویز و ایمنی</li>
+      </ul>
+	   <div style="text-align:center; margin-top:15px;">
+      <img src="icon/mep/Split.jpg" alt="نور کارگاهی" style="max-width:250px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.25);">
+    </div>
+	 <div style="text-align:center; margin-top:15px;">
+      <img src="icon/mep/VRF.jpg" alt="نور کارگاهی" style="max-width:250px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.25);">
+    </div>
+    </div>
+  </div>
+
+  <!-- 5. سیستم گرمایش از کف -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      ۵ – گرمایش از کف (Underfloor Heating)
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>سیستم گرمایش یکنواخت از کف، مناسب فضاهای اداری و مسکونی.</p>
+      <ul style="margin-right:20px; color:#555; line-height:1.7;">
+        <li>محل نصب: زیر کف تمام شده (سرامیک، پارکت)</li>
+        <li>تاسیسات مورد نیاز: لوله‌های آب گرم یا کابل حرارتی، پمپ سیرکولاتور، شیرهای کنترل</li>
+        <li>ضوابط: فاصله لوله‌ها ۱۰–۲۰ سانتی‌متر بسته به توان حرارتی، عایق حرارتی زیر لوله، دسترسی به شیرها برای کنترل</li>
+      </ul>
+	   <div style="text-align:center; margin-top:15px;">
+      <img src="icon/mep/Underfloor Heating.webp" alt="نور کارگاهی" style="max-width:250px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.25);">
+    </div>
+    </div>
+  </div>
+
+  <!-- 6. نکات کلی -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      ۶ – نکات اجرایی و استانداردها
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <ul style="margin-right:20px; color:#555; line-height:1.7;">
+        <li>فضای کافی برای موتورخانه یا یونیت‌های مرکزی</li>
+        <li>کانال‌ها و لوله‌ها طوری نصب شوند که سرویس و نگهداری آسان باشد</li>
+        <li>تأمین هوای تازه و تهویه مناسب برای تمام فضاها</li>
+        <li>کنترل دما و رطوبت با ترموستات‌ها و سنسورها</li>
+        <li>توجه به صدا، ارتعاش و ایمنی برق و آب</li>
+      </ul>
+	   <div style="text-align:center; margin-top:15px;">
+      <img src="icon/mep/Ceiling detector.webp" alt="نور کارگاهی" style="max-width:250px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.25);">
+    </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+<script>
+  document.querySelectorAll(".accordion-header").forEach(header => {
+    header.addEventListener("click", () => {
+      const item = header.parentElement;
+      const isActive = item.classList.contains("active");
+
+      // بستن بقیه
+      const siblings = Array.from(item.parentElement.children).filter(
+        child => child !== item && child.classList.contains("accordion-item")
+      );
+      siblings.forEach(sibling => sibling.classList.remove("active"));
+
+      // باز یا بسته کردن فعلی
+      item.classList.toggle("active", !isActive);
+    });
+  });
+  
+  function copyLink(url) {
+  navigator.clipboard.writeText(url).then(() => {
+    alert('لینک کپی شد: ' + url);
+  }).catch(err => {
+    alert('خطا در کپی لینک: ' + err);
+  });
+}
+
+
+
+// file/menu.js — فقط منطق باز/بسته کردن منو
+const toggleBtn = document.getElementById('menuToggle');
+const sidebar = document.getElementById('menuItems');
+
+if (toggleBtn && sidebar) {
+  // مقداردهی اولیه aria
+  toggleBtn.setAttribute('aria-expanded', 'false');
+  sidebar.setAttribute('aria-hidden', 'true');
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const opening = !sidebar.classList.contains('active');
+    sidebar.classList.toggle('active');
+    toggleBtn.textContent = opening ? '✕' : '☰';
+    toggleBtn.setAttribute('aria-expanded', String(opening));
+    sidebar.setAttribute('aria-hidden', String(!opening));
+  });
+
+  // کلیک در بیرون منو -> بسته شدن
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && e.target !== toggleBtn && sidebar.classList.contains('active')) {
+      sidebar.classList.remove('active');
+      toggleBtn.textContent = '☰';
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      sidebar.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  // بستن با Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sidebar.classList.contains('active')) {
+      sidebar.classList.remove('active');
+      toggleBtn.textContent = '☰';
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      sidebar.setAttribute('aria-hidden', 'true');
+    }
+  });
+}
+
+</script>
+
+</body>
+</html>

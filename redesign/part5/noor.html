@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>light</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: #e0e5ec;
+      direction: rtl;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: #e0e5ec;
+      box-shadow: 0 4px 10px rgba(163, 177, 198, 0.4), 0 -4px 10px rgba(255, 255, 255, 0.6);
+      padding: 20px;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      border-radius: 0 0 30px 30px;
+    }
+
+    .accordion-container {
+      width: 90%;
+      max-width: 900px;
+      margin: 40px auto;
+      background: #e0e5ec;
+      border-radius: 20px;
+      box-shadow: 8px 8px 15px #a3b1c6, -8px -8px 15px #ffffff;
+      flex-grow: 1;
+    }
+
+    .accordion-item { border-bottom: 1px solid #d1d9e6; }
+
+    .accordion-header {
+      background: #e0e5ec;
+      padding: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s ease;
+    }
+    .accordion-header:hover { background: #dfe4ea; }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      background: #f1f3f6;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 20px;
+    }
+    .accordion-item.active > .accordion-content {
+      max-height: 90vh;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .accordion-content p, .accordion-content li {
+      margin: 10px 0;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    .plus-minus { font-size: 24px; transition: transform 0.3s ease; }
+    .accordion-item.active > .accordion-header .plus-minus { transform: rotate(45deg); }
+
+    .accordion-content::-webkit-scrollbar { width: 8px; }
+    .accordion-content::-webkit-scrollbar-thumb { background: #ccc; border-radius: 8px; }
+
+    @media (max-width: 768px) {
+      .accordion-container { width: 95%; }
+      .accordion-header { font-size: 1rem; padding: 18px; }
+      header { font-size: 1.5rem; padding: 15px; }
+    }
+    @media (max-width: 480px) {
+      header { font-size: 1.3rem; }
+      .accordion-header { font-size: 0.95rem; padding: 16px; }
+      .accordion-content { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>انواع نورپردازی ساختمان</title>
+  <link rel="stylesheet" href="file/electric.css">
+</head>
+<body>
+
+
+
+<style>
+.soft-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  background: #a8d8ff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 6px 6px 12px #91bcd9,
+              -6px -6px 12px #bff3ff;
+  transition: all 0.2s ease-in-out;
+}
+.soft-btn:active {
+  box-shadow: inset 6px 6px 12px #91bcd9,
+              inset -6px -6px 12px #bff3ff;
+}
+
+
+
+/* file/menu.css — فقط استایل‌های مربوط به منو */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
+/* اگر فونت رو در جای دیگری لود می‌کنی، می‌تونی خط @import را حذف کنی. */
+
+/* دکمه باز/بسته منو */
+/* دکمه باز/بسته منو */
+#menuToggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: #4CAF50;
+  color: white;
+  font-size: 1.6rem;        /* کوچیک‌تر از قبل */
+  padding: 6px 10px;        /* کوچک‌تر */
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.25);
+  transition: background 0.3s ease;
+}
+
+#menuToggle:hover {
+  background: #45a049;
+}
+
+/* نوار کناری */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;             /* عرض کمتر */
+  height: 100%;
+  background: #0b29843d;
+  box-shadow: -2px 0 8px rgba(0, 255, 255, 0.55);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;                 /* فاصله کمتر بین دکمه‌ها */
+  padding: 55px 12px 12px;  /* کمتر از قبل */
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  direction: rtl;
+
+  /* اسکرول عمودی */
+  overflow-y: auto;
+  scrollbar-width: thin; /* برای مرورگرهای مدرن */
+}
+
+/* حالت فعال (باز شدن منو) */
+.sidebar.active {
+  transform: translateX(0);
+}
+
+/* استایل اسکرول‌بار در کروم/اج/سافاری */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar::-webkit-scrollbar-track {
+  background: #eee;
+  border-radius: 3px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 3px;
+}
+
+/* دکمه‌های داخل منو */
+.sidebar button {
+  padding: 8px 6px;          /* کوچیک‌تر */
+  font-size: 0.9rem;         /* کوچیک‌تر */
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  background: #4CAF50;
+  color: white;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px #a3b1c6, -2px -2px 5px #ffffff;
+  transition: background 0.2s ease, transform 0.08s ease;
+  text-align: right;
+}
+
+.sidebar button:hover,
+.sidebar button:focus {
+  background: #45a049;
+  transform: translateY(-1px);
+  outline: none;
+}
+
+/* حالت فشرده در صفحه‌های کوچک */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 170px;           /* باز هم باریک‌تر در موبایل */
+    padding: 50px 10px 10px;
+  }
+  #menuToggle {
+    font-size: 1.4rem;
+    padding: 5px 8px;
+    top: 12px;
+    right: 12px;
+  }
+  .sidebar button {
+    font-size: 0.85rem;
+    padding: 7px 5px;
+  }
+}
+
+
+/* ریسپانسیو */
+@media (max-width: 480px) {
+  .sidebar { width: 220px; padding: 60px 15px; }
+  #menuToggle { font-size: 1.8rem; padding: 8px 12px; top: 14px; right: 14px; }
+}
+
+</style>
+
+<header>
+  دسته‌بندی نورپردازی ساختمان و محوطه
+  
+<!-- منو (paste this into the <body> of any page) -->
+<div id="menuToggle" aria-controls="menuItems" aria-expanded="false">☰</div>
+
+<nav class="sidebar" id="menuItems" aria-hidden="true">
+ <button onclick="location.href='index.html'">منو </button>
+  <button onclick="location.href='noor.html'">نور و تاسیسات برق</button>
+  <button onclick="location.href='etfae harigh.html'">اطفاع حریق</button>
+  <button onclick="location.href='HVAC.html'">تاسیسات گرمایشی سرمایشی</button>
+  <button onclick="location.href='saghf kazeb.html'">سقف های کاذب</button>
+  <button onclick="location.href='electric.html'">دیوارهای سبک</button>
+  <button onclick="location.href='kafpoosh.html'">کف سازی</button>
+   <button onclick="location.href='wall01.html'">دیتیل</button>
+</nav>
+
+
+</header>
+
+<div class="accordion-container">
+
+  <!-- داخلی - عمومی -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      ۱ – نور داخلی: عمومی (Ambient Lighting)
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>روشنایی یکنواخت برای کل فضاهای داخلی ساختمان.</p>
+      <ul style="margin-right:20px; color:#555; line-height:1.7;">
+        <li>لوسترها و چراغ‌های سقفی مرکزی</li>
+        <li>چراغ‌های سقفی LED و پنل‌های توکار</li>
+        <li>چراغ‌های خطی در سقف کاذب</li>
+      </ul>
+	  <!-- عکس در انتهای دیو -->
+    <div style="text-align:center; margin-top:15px;">
+      <img src="icon/light/Ambient Lighting.jpg" alt="نور کارگاهی" style="max-width:250px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.25);">
+    </div>
+    </div>
+  </div>
+
+  <!-- داخلی - موضعی -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      ۲ – نور داخلی: موضعی (Task Lighting)
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>تمرکز نور روی محل انجام کار خاص.</p>
+      <ul style="margin-right:20px; color:#555; line-height:1.7;">
+        <li>چراغ مطالعه و آباژور</li>
+        <li>نور زیر کابینت آشپزخانه</li>
+        <li>چراغ بالای آینه سرویس بهداشتی</li>
+      </ul>
+	  <!-- عکس در انتهای دیو -->
+    <div style="text-align:center; margin-top:15px;">
+      <img src="icon/light/Task Lighting.jpg" alt="نور کارگاهی" style="max-width:250px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.25);">
+    </div>
+    </div>
+  </div>
+
+  <!-- داخلی - تاکیدی -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      ۳ – نور داخلی: تاکیدی (Accent Lighting)
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>برای برجسته‌کردن جزئیات و دکوراسیون داخلی.</p>
+      <ul style="margin-right:20px; color:#555; line-height:1.7;">
+        <li>نور مخفی در سقف و دیوار</li>
+        <li>وال‌واشر برای تابلو یا دیوار شاخص</li>
+        <li>چراغ‌های اسپات‌لایت برای قفسه‌ها و ویترین</li>
+      </ul>
+	  <!-- عکس در انتهای دیو -->
+    <div style="text-align:center; margin-top:15px;">
+      <img src="icon/light/Accent Lighting.jpg" alt="نور کارگاهی" style="max-width:250px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.25);">
+    </div>
+    </div>
+  </div>
+
+  <!-- داخلی - تزئینی -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      ۴ – نور داخلی: تزئینی (Decorative Lighting)
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>منبع نور به‌عنوان عنصر دکوراتیو و زیبایی.</p>
+      <ul style="margin-right:20px; color:#555; line-height:1.7;">
+        <li>لوسترهای کلاسیک یا مدرن</li>
+        <li>چراغ‌های دیوارکوب دکوراتیو</li>
+        <li>چراغ‌های آویز بالای میز ناهارخوری یا کانتر</li>
+      </ul>
+	  <!-- عکس در انتهای دیو -->
+    <div style="text-align:center; margin-top:15px;">
+      <img src="icon/light/Decorative Lighting.jpg" alt="نور کارگاهی" style="max-width:250px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.25);">
+    </div>
+    </div>
+  </div>
+
+  <!-- نور نما -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      ۵ – نورپردازی نما (Facade Lighting)
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>برای نمایش زیبایی معماری ساختمان در شب.</p>
+      <ul style="margin-right:20px; color:#555; line-height:1.7;">
+        <li>پروژکتورهای LED با زاویه قابل تنظیم</li>
+        <li>نور خطی در لبه‌ها و قاب پنجره‌ها</li>
+        <li>وال‌واشر برای شستشوی نور روی دیوار نما</li>
+      </ul>
+	  <!-- عکس در انتهای دیو -->
+    <div style="text-align:center; margin-top:15px;">
+      <img src="icon/light/Facade Lighting.jpg" alt="نور کارگاهی" style="max-width:250px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.25);">
+    </div>
+    </div>
+  </div>
+
+  <!-- نور محوطه -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      ۶ – نورپردازی محوطه و لندسکیپ (Landscape Lighting)
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>برای روشنایی و زیبایی فضاهای سبز، باغ و حیاط.</p>
+      <ul style="margin-right:20px; color:#555; line-height:1.7;">
+        <li>چراغ‌های پایه‌کوتاه (Bollard) برای مسیرها</li>
+        <li>اسپات‌لایت برای درختان و المان‌های محوطه</li>
+        <li>چراغ‌های دفنی و توکار در زمین</li>
+      </ul>
+	  
+	  <!-- عکس در انتهای دیو -->
+    <div style="text-align:center; margin-top:15px;">
+      <img src="icon/light/Landscape Lighting.jpg" alt="نور کارگاهی" style="max-width:250px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.25);">
+    </div>
+    </div>
+  </div>
+
+  <!-- نور استخر -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      ۷ – نورپردازی استخر و آب‌نما
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>برای ایمنی و زیبایی آب در شب.</p>
+      <ul style="margin-right:20px; color:#555; line-height:1.7;">
+        <li>چراغ‌های ضدآب توکار در دیواره یا کف استخر</li>
+        <li>نور RGB برای جلوه رنگی و متغیر</li>
+        <li>نورپردازی فواره و آب‌نما</li>
+      </ul>
+	  <!-- عکس در انتهای دیو -->
+    <div style="text-align:center; margin-top:15px;">
+      <img src="icon/light/Pool & Fountain Lighting.jpg" alt="نور کارگاهی" style="max-width:250px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.25);">
+    </div>
+    </div>
+  </div>
+
+  <!-- نور مسیر و زمینی -->
+  <div class="accordion-item">
+    <div class="accordion-header">
+      ۸ – نور مسیر و زمینی (Path & In-ground Lighting)
+      <span class="plus-minus">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>برای مسیرهای پیاده‌روی، راه‌پله‌ها و سکوها.</p>
+      <ul style="margin-right:20px; color:#555; line-height:1.7;">
+        <li>چراغ‌های دفنی (In-ground) در کف مسیر</li>
+        <li>چراغ‌های توکار در پله و نرده</li>
+        <li>چراغ‌های راهنمای مسیر در پارکینگ یا حیاط</li>
+      </ul>
+	  <!-- عکس در انتهای دیو -->
+    <div style="text-align:center; margin-top:15px;">
+      <img src="icon/light/Path & In-ground Lighting.jpg" alt="نور کارگاهی" style="max-width:250px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.25);">
+    </div>
+    </div>
+  </div>
+
+ <!-- نور کارگاهی -->
+<div class="accordion-item">
+  <div class="accordion-header">
+    ۹ – نور کارگاهی و صنعتی
+    <span class="plus-minus">+</span>
+  </div>
+  <div class="accordion-content">
+    <p>برای محیط‌های کاری، ساخت‌وساز و صنعتی با شدت نور بالا.</p>
+    <ul style="margin-right:20px; color:#555; line-height:1.7;">
+      <li>پروژکتورهای LED پرنور و ضد آب و گردوغبار</li>
+      <li>چراغ‌های مهتابی یا High-Bay برای سوله‌ها</li>
+      <li>چراغ‌های سیار و موقت برای کارگاه‌های ساختمانی</li>
+    </ul>
+
+    <!-- عکس در انتهای دیو -->
+    <div style="text-align:center; margin-top:15px;">
+      <img src="icon/light/worklight.jpg" alt="نور کارگاهی" style="max-width:250px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.25);">
+    </div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <div class="accordion-header">
+    10 – جدول نورها
+    <span class="plus-minus">+</span>
+  </div>
+
+  <div class="accordion-content">
+    <!-- جدول انواع نور -->
+    <div class="light-table-container" style="margin-top:30px;">
+      <h3 style="text-align:center; margin-bottom:15px;">جدول دسته‌بندی نورها</h3>
+      
+      <table style="width:100%; border-collapse:collapse; text-align:center; font-family:sans-serif;">
+        <thead>
+          <tr style="background:#f2f2f2;">
+            <th style="padding:10px; border:1px solid #ccc;">آیکون</th>
+            <th style="padding:10px; border:1px solid #ccc;">نام فارسی</th>
+            <th style="padding:10px; border:1px solid #ccc;">نام انگلیسی</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img src="icon/light/ambient.png" alt="Ambient" style="width:40px;"></td>
+            <td>نور داخلی: عمومی</td>
+            <td>Ambient Lighting</td>
+          </tr>
+          <tr>
+            <td><img src="icon/light/task.png" alt="Task" style="width:40px;"></td>
+            <td>نور داخلی: موضعی</td>
+            <td>Task Lighting</td>
+          </tr>
+          <tr>
+            <td><img src="icon/light/accent.png" alt="Accent" style="width:40px;"></td>
+            <td>نور داخلی: تاکیدی</td>
+            <td>Accent Lighting</td>
+          </tr>
+          <tr>
+            <td><img src="icon/light/decorative.png" alt="Decorative" style="width:40px;"></td>
+            <td>نور داخلی: تزئینی</td>
+            <td>Decorative Lighting</td>
+          </tr>
+          <tr>
+            <td><img src="icon/light/facade.png" alt="Facade" style="width:40px;"></td>
+            <td>نورپردازی نما</td>
+            <td>Facade Lighting</td>
+          </tr>
+          <tr>
+            <td><img src="icon/light/landscape.png" alt="Landscape" style="width:40px;"></td>
+            <td>نورپردازی محوطه و لندسکیپ</td>
+            <td>Landscape Lighting</td>
+          </tr>
+          <tr>
+            <td><img src="icon/light/pool.png" alt="Pool" style="width:40px;"></td>
+            <td>نورپردازی استخر و آب‌نما</td>
+            <td>Pool & Fountain Lighting</td>
+          </tr>
+          <tr>
+            <td><img src="icon/light/path.png" alt="Path" style="width:40px;"></td>
+            <td>نور مسیر و زمینی</td>
+            <td>Path & In-ground Lighting</td>
+          </tr>
+          <tr>
+            <td><img src="icon/light/worklight.png" alt="Work" style="width:40px;"></td>
+            <td>نور کارگاهی و صنعتی</td>
+            <td>Work & Industrial Lighting</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+</div>
+
+<script src="file/electric.js"></script>
+
+</body>
+</html>
+
+<script>
+  document.querySelectorAll(".accordion-header").forEach(header => {
+    header.addEventListener("click", () => {
+      const item = header.parentElement;
+      const isActive = item.classList.contains("active");
+
+      // بستن بقیه
+      const siblings = Array.from(item.parentElement.children).filter(
+        child => child !== item && child.classList.contains("accordion-item")
+      );
+      siblings.forEach(sibling => sibling.classList.remove("active"));
+
+      // باز یا بسته کردن فعلی
+      item.classList.toggle("active", !isActive);
+    });
+  });
+  
+  function copyLink(url) {
+  navigator.clipboard.writeText(url).then(() => {
+    alert('لینک کپی شد: ' + url);
+  }).catch(err => {
+    alert('خطا در کپی لینک: ' + err);
+  });
+}
+
+
+
+// file/menu.js — فقط منطق باز/بسته کردن منو
+const toggleBtn = document.getElementById('menuToggle');
+const sidebar = document.getElementById('menuItems');
+
+if (toggleBtn && sidebar) {
+  // مقداردهی اولیه aria
+  toggleBtn.setAttribute('aria-expanded', 'false');
+  sidebar.setAttribute('aria-hidden', 'true');
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const opening = !sidebar.classList.contains('active');
+    sidebar.classList.toggle('active');
+    toggleBtn.textContent = opening ? '✕' : '☰';
+    toggleBtn.setAttribute('aria-expanded', String(opening));
+    sidebar.setAttribute('aria-hidden', String(!opening));
+  });
+
+  // کلیک در بیرون منو -> بسته شدن
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && e.target !== toggleBtn && sidebar.classList.contains('active')) {
+      sidebar.classList.remove('active');
+      toggleBtn.textContent = '☰';
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      sidebar.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  // بستن با Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sidebar.classList.contains('active')) {
+      sidebar.classList.remove('active');
+      toggleBtn.textContent = '☰';
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      sidebar.setAttribute('aria-hidden', 'true');
+    }
+  });
+}
+
+</script>
+
+</body>
+</html>
