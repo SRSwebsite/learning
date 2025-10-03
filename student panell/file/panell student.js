@@ -209,11 +209,11 @@ const tabData = [
       <ul class="list-disc pr-5 text-sm space-y-2">
         
         <li>
-          ${session.fileIds
-            ? `<a class="text-blue-600 underline" href="https://drive.google.com/drive/folders/${session.fileIds}" target="_blank">دانلود فایل‌ها</a>`
-            : "فایل‌ها موجود نیستند"}
-        </li>
-      </ul>`
+  ${session.fileIds
+    ? `<a class="text-blue-600 underline" href="https://drive.google.com/uc?export=download&id=${session.fileIds}" target="_blank" rel="noopener noreferrer">دانلود فایل زیپ</a>`
+    : "فایلی موجود نیست"}
+</li>
+
   }
 ];
 
