@@ -23,46 +23,19 @@ function showTab(tabId) {
     sidebar.classList.add("translate-x-full");
   }
 }
-
-// آدرس API اسکریپت Google Apps Script برای اعتبارسنجی اطلاعات ورود
-const scriptURL = "https://script.google.com/macros/s/AKfycbzjQK8QBV4zyjCDx2qQhuhSjgfNuwtq_UBecA1LSKX58jwwzhL9qqkdmU9fE0cjQ6Vw/exec"; // ← آدرس کوتاه شده
-
-
-let currentCaptcha = "";
-
-function generateCaptcha() {
-  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  currentCaptcha = Array.from({ length: 5 }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
-  const captchaCodeEl = document.getElementById("captchaCode");
-  if (captchaCodeEl) captchaCodeEl.innerText = currentCaptcha;
-}
-
-// اجرای اولیه هنگام بارگذاری صفحه
-window.addEventListener("load", generateCaptcha);
-
-
+// آدرس API اسکریپت Google Apps Script
+const scriptURL = "https://script.google.com/macros/s/AKfycbyBCFTBtfUGWLnsuskGjjuLF-F8HrDTabCiij8n0hfCGm8DsVd3PMCufBT0JAywlth4/exec";
 
 // تابع ورود (Login)
 function login() {
-	function login() {
   const username = document.getElementById("username").value.trim();
   const password = document.getElementById("password").value.trim();
-  const captchaInput = document.getElementById("captchaInput").value.trim();
   const loginMsg = document.getElementById("loginMsg");
 
-  if (captchaInput.toUpperCase() !== currentCaptcha.toUpperCase()) {
-    loginMsg.innerText = "کد امنیتی اشتباه است.";
-    generateCaptcha(); // بازسازی کپچا
+  if (!username || !password) {
+    loginMsg.innerText = "لطفاً یوزرنیم و پسورد را وارد کنید.";
     return;
   }
-
-  // ادامه عملیات fetch...
-}
-
-  // دریافت مقادیر ورودی نام کاربری و رمز عبور و حذف فاصله‌های اضافی
-  const username = document.getElementById("username").value.trim();
-  const password = document.getElementById("password").value.trim();
-  const loginMsg = document.getElementById("loginMsg");
 
   // ارسال درخواست POST به اسکریپت با نام کاربری و رمز عبور
   fetch(scriptURL, {
@@ -203,18 +176,19 @@ const tabData = [
       `
       : `<p class="text-red-500">فایلی وجود ندارد</p>`
   },
-  {
-    title: "دانلودها",
-    content: `
-      <ul class="list-disc pr-5 text-sm space-y-2">
-        
-        <li>
-  ${session.fileIds
-    ? `<a class="text-blue-600 underline" href="https://drive.google.com/uc?export=download&id=${session.fileIds}" target="_blank" rel="noopener noreferrer">دانلود فایل زیپ</a>`
-    : "فایلی موجود نیست"}
-</li>
+{
+  title: "دانلودها",
+  content: `
+    <ul class="list-disc pr-5 text-sm space-y-2">
+      <li>
+        ${session.fileIds
+          ? `<a class="text-blue-600 underline" href="https://drive.google.com/uc?export=download&id=${session.fileIds}">دانلود فایل</a>`
+          : "فایل‌ها موجود نیستند"}
+      </li>
+    </ul>
+  `
+}
 
-  }
 ];
 
 
