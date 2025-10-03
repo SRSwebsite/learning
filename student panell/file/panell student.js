@@ -133,28 +133,66 @@ const tabData = [
     title: "توضیحات",
     content: `<p class="text-sm text-gray-700 whitespace-pre-line">${session.description || "توضیحی ثبت نشده است."}</p>`
   },
+  
+  
   {
-    title: "ویدئو",
-    content: session.videoId
-      ? `
-        <div class="space-y-2">
-          <div class="flex gap-2">
-            <button onclick="document.getElementById('${iframeId}-video')?.requestFullscreen()" 
-                    class="bg-blue-500 text-white text-xs px-3 py-1 rounded hover:bg-blue-600">
-              نمایش تمام‌صفحه
-            </button>
-            <button onclick="alert('کاربر محترم ${userName}\\nدر صورت مشاهده هرگونه کپی‌برداری (ضبط، کپی، ذخیره‌سازی) از محتوای پنل، پنل شما به طور دائم مسدود خواهد شد.')" 
-                    class="bg-red-600 text-white text-xs px-3 py-1 rounded hover:bg-red-700">
-              هشدار!
-            </button>
-          </div>
-          <iframe id="${iframeId}-video" class="w-full h-[450px] md:h-[600px]" 
-                  src="https://drive.google.com/file/d/${session.videoId}/preview" 
-                  allowfullscreen></iframe>
+  title: "ویدئو",
+  content: session.videoId
+    ? `
+      <div class="space-y-2">
+        <div class="flex gap-2">
+          <button onclick="document.getElementById('${iframeId}-container')?.requestFullscreen()" 
+                  class="bg-blue-500 text-white text-xs px-3 py-1 rounded hover:bg-blue-600">
+            نمایش تمام‌صفحه
+          </button>
+          <!-- دکمه هشدار -->
+<button onclick="document.getElementById('${iframeId}-warning').classList.remove('hidden')" 
+        class="bg-red-600 text-white text-xs px-3 py-1 rounded hover:bg-red-700">
+  هشدار!
+</button>
+
+<!-- Popup سفارشی -->
+<div id="${iframeId}-warning" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50">
+  <div class="bg-white p-4 rounded-lg shadow-lg max-w-sm w-full">
+    <h2 class="text-red-600 font-bold mb-2">هشدار!</h2>
+    <p class="text-sm text-gray-700 leading-6">
+      کاربر محترم ${userName}<br>
+      در صورت مشاهده هرگونه کپی‌برداری (ضبط، کپی، ذخیره‌سازی) از محتوای پنل، 
+      پنل شما به طور دائم مسدود خواهد شد.
+    </p>
+    <div class="mt-4 text-right">
+      <button onclick="document.getElementById('${iframeId}-warning').classList.add('hidden')" 
+              class="bg-red-600 text-white px-4 py-1 rounded hover:bg-red-700">
+        بستن
+      </button>
+    </div>
+  </div>
+</div>
+
         </div>
-      `
-      : `<p class="text-red-500">ویدئویی وجود ندارد.</p>`
-  },
+
+        <!-- این div کل ویدئو + واترمارک رو نگه میداره -->
+        <div id="${iframeId}-container" class="relative w-full h-[450px] md:h-[600px]">
+          <iframe id="${iframeId}-video"
+                  class="w-full h-full"
+                  src="https://drive.google.com/file/d/${session.videoId}/preview"
+                  allowfullscreen>
+          </iframe>
+
+          <!-- واترمارک -->
+          <div class="absolute bottom-6 right-2 text-red-500 text-lg opacity-100 pointer-events-none select-none">
+            نام کاربر: ${userName}
+          </div>
+        </div>
+
+        ${userName}
+      </div>
+    `
+    : `<p class="text-red-500">ویدئویی وجود ندارد.</p>`
+},
+
+
+
   {
     title: "3D",
     content: session.webglLink
