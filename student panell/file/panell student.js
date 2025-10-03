@@ -145,8 +145,29 @@ const tabData = [
                   class="bg-blue-500 text-white text-xs px-3 py-1 rounded hover:bg-blue-600">
             نمایش تمام‌صفحه
           </button>
+          <!-- دکمه هشدار -->
+<button onclick="document.getElementById('${iframeId}-warning').classList.remove('hidden')" 
+        class="bg-red-600 text-white text-xs px-3 py-1 rounded hover:bg-red-700">
+  هشدار!
+</button>
 
-
+<!-- Popup سفارشی -->
+<div id="${iframeId}-warning" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50">
+  <div class="bg-white p-4 rounded-lg shadow-lg max-w-sm w-full">
+    <h2 class="text-red-600 font-bold mb-2">هشدار!</h2>
+    <p class="text-sm text-gray-700 leading-6">
+      کاربر محترم ${userName}<br>
+      در صورت مشاهده هرگونه کپی‌برداری (ضبط، کپی، ذخیره‌سازی) از محتوای پنل، 
+      پنل شما به طور دائم مسدود خواهد شد.
+    </p>
+    <div class="mt-4 text-right">
+      <button onclick="document.getElementById('${iframeId}-warning').classList.add('hidden')" 
+              class="bg-red-600 text-white px-4 py-1 rounded hover:bg-red-700">
+        بستن
+      </button>
+    </div>
+  </div>
+</div>
 
         </div>
 
@@ -328,4 +349,3 @@ const tabData = [
     console.error(err);
   });
 }
-
