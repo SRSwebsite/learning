@@ -26,14 +26,36 @@ function showTab(tabId) {
 // آدرس API اسکریپت Google Apps Script
 const scriptURL = "https://script.google.com/macros/s/AKfycbyBCFTBtfUGWLnsuskGjjuLF-F8HrDTabCiij8n0hfCGm8DsVd3PMCufBT0JAywlth4/exec";
 
+function generateCaptcha() {
+  const captchaEl = document.getElementById("captchaCode");
+  if (!captchaEl) return; // اگر المان هنوز وجود ندارد کاری نکن
+
+  const code = Math.random().toString(36).substring(2, 6);
+  captchaEl.textContent = code;
+  return code;
+}
+
+// وقتی صفحه لود شد
+document.addEventListener("DOMContentLoaded", generateCaptcha);
+
+
 // تابع ورود (Login)
 function login() {
   const username = document.getElementById("username").value.trim();
   const password = document.getElementById("password").value.trim();
+  const captchaInput = document.getElementById("captchaInput").value.trim();
   const loginMsg = document.getElementById("loginMsg");
 
+  // بررسی ورود خالی
   if (!username || !password) {
     loginMsg.innerText = "لطفاً یوزرنیم و پسورد را وارد کنید.";
+    return;
+  }
+
+  // بررسی کپچا
+  if (captchaInput !== document.getElementById("captchaCode").textContent) {
+    loginMsg.innerText = "کد امنیتی نادرست است.";
+    generateCaptcha(); // تولید کپچای جدید
     return;
   }
 
@@ -43,11 +65,11 @@ function login() {
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
   })
-  .then(res => res.json()) // تبدیل پاسخ به JSON
+  .then(res => res.json())
   .then(data => {
-    // اگر ورود موفق بود
     if (data.success) {
-      // فرم ورود را مخفی و پنل کاربری را نمایش بده
+      loginMsg.style.color = "green";
+      loginMsg.innerText = "ورود موفق بود!";
       document.getElementById("loginForm").style.display = "none";
       document.getElementById("userPanel").style.display = "block";
 
