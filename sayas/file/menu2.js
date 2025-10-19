@@ -1,1 +1,0 @@
-const toggleBtn = document.getElementById('menuToggle'); const sidebar = document.getElementById('menuItems'); toggleBtn.addEventListener('click', () => { sidebar.classList.toggle('active'); toggleBtn.textContent = sidebar.classList.contains('active') ? '✕' : '☰'; });
