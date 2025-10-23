@@ -24,7 +24,7 @@ function showTab(tabId) {
   }
 }
 // آدرس API اسکریپت Google Apps Script
-const scriptURL = "https://script.google.com/macros/s/AKfycbyBCFTBtfUGWLnsuskGjjuLF-F8HrDTabCiij8n0hfCGm8DsVd3PMCufBT0JAywlth4/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbxsOGADykPylH1luwax8kG7mlwfoVg0dSJMUyKQuTjLHa7p0aGoVYHBG7c0HXVAh49j/exec";
 
 function generateCaptcha() {
   const captchaEl = document.getElementById("captchaCode");
@@ -390,3 +390,4 @@ const tabData = [
     console.error(err);
   });
 }
+
